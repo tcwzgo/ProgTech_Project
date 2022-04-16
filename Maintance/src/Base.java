@@ -15,6 +15,13 @@ public class Base {
                 emp.showWindow();
             }
         });
+        openFactoriesDBButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Factories fact = new Factories();
+                fact.showWindow();
+            }
+        });
     }
 
     public static void main(String[] args) {
