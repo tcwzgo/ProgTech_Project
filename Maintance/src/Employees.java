@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +18,8 @@ public class Employees {
     private JTable table1;
     private JButton deleteBtn;
     private JButton updateBtn;
+
+    private static Logger logger = Logger.getLogger(Employees.class);
 
     public Employees() {
         addBtn.addActionListener(new ActionListener() {
@@ -40,6 +44,7 @@ public class Employees {
 
     public static void main(String[] args) {
         showWindow();
+
     }
 
     public static void showWindow()
@@ -52,5 +57,6 @@ public class Employees {
         frame.setResizable(false);
         frame.setSize(600, 400);
         frame.setLocationRelativeTo(null); // kezdésnél középen jelenik meg az ablak
+        //logger.info("Test log - My third log!");
     }
 }
