@@ -1,3 +1,5 @@
+create database Maintance;
+
 create table employees (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(40),
@@ -13,8 +15,11 @@ create table factories (
 	address VARCHAR(40)
 );
 
-create employee_workplace (
+create table employee_workplace (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	employee_id INT FOREIGN KEY REFRENCES maintanence.employees(id)
-	factory_id INT FOREIGN KEY REFRENCES maintanence.factories(id)
+	employee_id INT,
+	factory_id INT,
+
+	FOREIGN KEY (employee_id) REFERENCES employees(id),
+	FOREIGN KEY (factory_id) REFERENCES factories(id)
 );
