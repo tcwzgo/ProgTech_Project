@@ -4,7 +4,7 @@ create table employees (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(40),
 	email VARCHAR(40),
-	personal_number VARCHAR(8),
+	post VARCHAR(40),
 	salary BIGINT	
 );
 
