@@ -31,6 +31,7 @@ public class Base {
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null); // kezdésnél középen jelenik meg az ablak
     }
 
 
