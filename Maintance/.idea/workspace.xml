@@ -31,10 +31,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="322" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../LOG/log4j-1.2.17.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Factories">
+  <component name="RunManager" selected="Application.Employees">
     <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Base" />
+      <module name="Maintance" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Employees" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Employees" />
       <module name="Maintance" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -49,8 +61,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Factories" />
+        <item itemvalue="Application.Employees" />
         <item itemvalue="Application.Base" />
+        <item itemvalue="Application.Factories" />
       </list>
     </recent_temporary>
   </component>
@@ -63,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1650109045443</updated>
       <workItem from="1650109046776" duration="2255000" />
+      <workItem from="1650127736689" duration="2447000" />
     </task>
     <servers />
   </component>

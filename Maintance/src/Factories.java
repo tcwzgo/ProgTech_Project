@@ -25,5 +25,6 @@ public class Factories {
         frame.setVisible(true);
         frame.setResizable(false);
         frame.setSize(600, 400);
+        frame.setLocationRelativeTo(null); // kezdésnél középen jelenik meg az ablak
     }
 }
