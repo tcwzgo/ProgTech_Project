@@ -1,11 +1,11 @@
 import org.apache.log4j.*;
 import org.apache.log4j.chainsaw.Main;
-
+import org.apache.log4j.Logger;
 import javax.swing.*;
 import java.sql.*;
 
 public class DBConnect {
-    private static Logger logger = new Logger.getLogger(Main.class);
+    private static Logger logger = Logger.getLogger(DBConnect.class);
     /**
      * function to connect to the database
      * @param dbName the name of the database
