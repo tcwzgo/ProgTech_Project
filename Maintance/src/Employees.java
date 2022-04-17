@@ -3,6 +3,9 @@ import org.apache.log4j.Logger;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Employees {
     private JPanel Main;
@@ -44,7 +47,7 @@ public class Employees {
 
     public static void main(String[] args) {
         showWindow();
-
+        TestDatabase();
     }
 
     public static void showWindow()
@@ -58,5 +61,22 @@ public class Employees {
         frame.setSize(600, 400);
         frame.setLocationRelativeTo(null); // kezdésnél középen jelenik meg az ablak
         //logger.info("Test log - My third log!");
+    }
+
+    public static void TestDatabase()
+    {
+        try {
+            DBConnect dbcon = new DBConnect();
+            Connection connection = dbcon.Connect("maintance");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from employees");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("name"));
+            }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 }
