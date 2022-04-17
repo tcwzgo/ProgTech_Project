@@ -1,12 +1,13 @@
+import net.proteanit.sql.DbUtils;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class Employees {
     private JPanel Main;
@@ -22,8 +23,11 @@ public class Employees {
     private JTable table;
     private JButton deleteBtn;
     private JButton updateBtn;
+    private JButton showBtn;
+    private JButton cleartableBtn;
 
     private static Logger logger = Logger.getLogger(Employees.class);
+    private static DBConnect dbcon = new DBConnect();
 
     public Employees() {
         addBtn.addActionListener(new ActionListener() {
@@ -37,7 +41,7 @@ public class Employees {
                 salary = salaryText.getText();
 
                 try {
-                    DBConnect dbcon = new DBConnect();
+
                     Connection connection = dbcon.Connect("maintance");
                     PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
                     pst.setString(1, name);
@@ -45,15 +49,16 @@ public class Employees {
                     pst.setString(3, post);
                     pst.setString(4, salary);
                     pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Record added!");
+                    JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
                     logger.info("Record added to employees table succesfully.");
                     nameText.setText("");
                     emailText.setText("");
                     postText.setText("");
                     salaryText.setText("");
+                    table_load();
                 } catch(Exception ex){
                     ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Failed adding record!");
+                    JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
                     logger.info("Adding record to employees table was unsuccessful.");
                 }
 
@@ -68,14 +73,28 @@ public class Employees {
         updateBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                
+
+            }
+        });
+        showBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                table_load();
+            }
+        });
+        cleartableBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
+                model.setColumnCount(0);
             }
         });
     }
 
     public static void main(String[] args) {
         showWindow();
-        TestDatabase();
+        //TestDatabase();
     }
 
     public static void showWindow()
@@ -91,7 +110,7 @@ public class Employees {
         //logger.info("Test log - My third log!");
     }
 
-    public static void TestDatabase()
+    /*public static void TestDatabase()
     {
         try {
             DBConnect dbcon = new DBConnect();
@@ -106,5 +125,20 @@ public class Employees {
         {
             e.printStackTrace();
         }
+    }*/
+
+    private void table_load()
+    {
+        try {
+            Connection connection = dbcon.Connect("maintance");
+            PreparedStatement pst = connection.prepareStatement("select * from employees");
+            ResultSet rs = pst.executeQuery();
+            table.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
+
 }
