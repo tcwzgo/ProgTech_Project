@@ -9,4 +9,12 @@
   2022-04-17 20:14:07 INFO  Employees:68 - Adding record to employees table was unsuccessful.
   2022-04-17 20:17:52 INFO  Employees:68 - Adding record to employees table was unsuccessful.
   2022-04-17 21:42:26 INFO  Employees:64 - Record added to employees table succesfully.
+  2022-04-17 21:50:03 INFO  Employees:259 - Records selected to table in employees successfully.
+  2022-04-17 21:50:17 INFO  Employees:259 - Records selected to table in employees successfully.
+  2022-04-17 21:50:24 INFO  Employees:64 - Record added to employees table succesfully.
+  2022-04-17 21:50:24 INFO  Employees:259 - Records selected to table in employees successfully.
+  2022-04-17 21:50:28 INFO  Employees:259 - Records selected to table in employees successfully.
+  2022-04-17 21:50:29 INFO  Employees:97 - Record deleted in employees table successfully.
+  2022-04-17 21:50:31 INFO  Employees:259 - Records selected to table in employees successfully.
+  2022-04-17 21:50:34 INFO  Employees:259 - Records selected to table in employees successfully.
   

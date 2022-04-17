@@ -81,6 +81,25 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                try{
+                    String name = nameText.getText();
+
+                    Connection connection = dbcon.Connect("maintance");
+                    PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
+                    pst.setString(1, name);
+                    pst.executeUpdate();
+                    table_load();
+                    nameText.setText("");
+                    emailText.setText("");
+                    postText.setText("");
+                    salaryText.setText("");
+                    JOptionPane.showMessageDialog(null, "Deleted succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    logger.info("Record deleted in employees table successfully.");
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
+                    logger.info("Deleting records in employess was unsuccessful.");
+                }
             }
         });
         updateBtn.addActionListener(new ActionListener() {
