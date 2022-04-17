@@ -25,6 +25,9 @@ public class Employees {
     private JButton updateBtn;
     private JButton showBtn;
     private JButton cleartableBtn;
+    private JTextField searchText;
+    private JButton searchBtn;
+    private JButton clearTxtfield;
 
     private static Logger logger = Logger.getLogger(Employees.class);
     private static DBConnect dbcon = new DBConnect();
@@ -96,6 +99,54 @@ public class Employees {
                 DefaultTableModel model = (DefaultTableModel) table.getModel();
                 model.setRowCount(0);
                 model.setColumnCount(0);
+            }
+        });
+        searchBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try{
+                    String name = searchText.getText();
+
+                    Connection connection = dbcon.Connect("maintance");
+                    PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
+                    pst.setString(1, name);
+                    ResultSet rs = pst.executeQuery();
+
+                    if(rs.next())
+                    {
+                        String name_ = rs.getString(2);
+                        String email_ = rs.getString(3);
+                        String post_ = rs.getString(4);
+                        String salary_ = rs.getString(5);
+
+                        nameText.setText(name_);
+                        emailText.setText(email_);
+                        postText.setText(post_);
+                        salaryText.setText(salary_);
+                    }
+                    else
+                    {
+                        nameText.setText("");
+                        emailText.setText("");
+                        postText.setText("");
+                        salaryText.setText("");
+                        JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        });
+        clearTxtfield.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                nameText.setText("");
+                emailText.setText("");
+                postText.setText("");
+                salaryText.setText("");
             }
         });
     }
