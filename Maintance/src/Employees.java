@@ -5,6 +5,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -85,6 +87,32 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                try{
+                    String name = nameText.getText();
+                    String email = emailText.getText();
+                    String post = postText.getText();
+                    String salary = salaryText.getText();
+
+                    Connection connection = dbcon.Connect("maintance");
+                    PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
+                    pst.setString(1, name);
+                    pst.setString(2, email);
+                    pst.setString(3, post);
+                    pst.setString(4, salary);
+                    pst.setString(5, name);
+                    pst.executeUpdate();
+                    table_load();
+                    nameText.setText("");
+                    emailText.setText("");
+                    postText.setText("");
+                    salaryText.setText("");
+                    JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    logger.info("Record updated in employees table successfully.");
+                } catch(Exception ex){
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
+                    logger.info("Updating records in employess was unsuccessful.");
+                }
             }
         });
         showBtn.addActionListener(new ActionListener() {
@@ -132,10 +160,12 @@ public class Employees {
                         postText.setText("");
                         salaryText.setText("");
                         JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                        logger.info("A select query was successful.");
                     }
                 } catch(Exception ex){
                     ex.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                    logger.info("A select query was unsuccessful.");
                 }
 
             }
@@ -147,6 +177,20 @@ public class Employees {
                 emailText.setText("");
                 postText.setText("");
                 salaryText.setText("");
+            }
+        });
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                int selectedRowIndex = table.getSelectedRow();
+
+                nameText.setText(model.getValueAt(selectedRowIndex, 1).toString());
+                emailText.setText(model.getValueAt(selectedRowIndex, 2).toString());
+                postText.setText(model.getValueAt(selectedRowIndex, 3).toString());
+                salaryText.setText(model.getValueAt(selectedRowIndex, 4).toString());
             }
         });
     }
@@ -193,9 +237,11 @@ public class Employees {
             PreparedStatement pst = connection.prepareStatement("select * from employees");
             ResultSet rs = pst.executeQuery();
             table.setModel(DbUtils.resultSetToTableModel(rs));
+            logger.info("Records selected to table in employees successfully.");
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
+            logger.info("Selecting records to table in employees was unsuccessful.");
         }
 
     }
