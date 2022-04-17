@@ -34,33 +34,41 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                String name, email, post, salary;
-                name = nameText.getText();
-                email = emailText.getText();
-                post = postText.getText();
-                salary = salaryText.getText();
-
-                try {
-
-                    Connection connection = dbcon.Connect("maintance");
-                    PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
-                    pst.setString(1, name);
-                    pst.setString(2, email);
-                    pst.setString(3, post);
-                    pst.setString(4, salary);
-                    pst.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
-                    logger.info("Record added to employees table succesfully.");
-                    nameText.setText("");
-                    emailText.setText("");
-                    postText.setText("");
-                    salaryText.setText("");
-                    table_load();
-                } catch(Exception ex){
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
-                    logger.info("Adding record to employees table was unsuccessful.");
+                if (nameText.getText().equals("")  || emailText.getText().equals("") || postText.getText().equals("") || salaryText.getText().equals(""))
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in the textfields!", "Warning!", JOptionPane.PLAIN_MESSAGE);
                 }
+                else
+                {
+                    String name, email, post, salary;
+                    name = nameText.getText();
+                    email = emailText.getText();
+                    post = postText.getText();
+                    salary = salaryText.getText();
+
+                    try {
+
+                        Connection connection = dbcon.Connect("maintance");
+                        PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
+                        pst.setString(1, name);
+                        pst.setString(2, email);
+                        pst.setString(3, post);
+                        pst.setString(4, salary);
+                        pst.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
+                        logger.info("Record added to employees table succesfully.");
+                        nameText.setText("");
+                        emailText.setText("");
+                        postText.setText("");
+                        salaryText.setText("");
+                        table_load();
+                    } catch(Exception ex){
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
+                        logger.info("Adding record to employees table was unsuccessful.");
+                    }
+                }
+
 
             }
         });
