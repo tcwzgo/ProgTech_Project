@@ -23,3 +23,5 @@ create table employee_workplace (
 	FOREIGN KEY (employee_id) REFERENCES employees(id),
 	FOREIGN KEY (factory_id) REFERENCES factories(id)
 );
+
+insert into employees (name, email, post, salary) values ("Teszt Elek", "tesztelek@gmail.com", "secretary", 250000)
