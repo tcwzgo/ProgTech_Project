@@ -84,4 +84,32 @@
   2022-04-19 19:41:18 INFO  Employees:294 - Records selected to table in employees successfully.
   2022-04-19 19:41:19 INFO  Employees:108 - Record deleted in employees table successfully.
   2022-04-19 19:41:31 INFO  Employees:294 - Records selected to table in employees successfully.
+  2022-04-19 19:47:10 INFO  Employees:294 - Records selected to table in employees successfully.
+  2022-04-19 19:47:45 INFO  Employees:69 - Record added to employees table succesfully.
+  2022-04-19 19:47:45 INFO  Employees:294 - Records selected to table in employees successfully.
+  2022-04-19 19:50:34 INFO  Employees:294 - Records selected to table in employees successfully.
+  2022-04-19 19:50:57 INFO  Employees:80 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:51:08 INFO  Employees:80 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:51:16 INFO  Employees:80 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:54:51 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:55:23 INFO  Employees:77 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:55:33 INFO  Employees:77 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:55:39 INFO  Employees:154 - Updating records in employess was unsuccessful.
+  2022-04-19 19:55:41 INFO  Employees:77 - Adding record to employees table was unsuccessful.
+  2022-04-19 19:55:50 INFO  Employees:66 - Record added to employees table succesfully.
+  2022-04-19 19:55:50 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:56:09 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:56:10 INFO  Employees:150 - Record updated in employees table successfully.
+  2022-04-19 19:56:42 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:56:49 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:57:23 INFO  Employees:66 - Record added to employees table succesfully.
+  2022-04-19 19:57:23 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:57:45 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:57:47 INFO  Employees:150 - Record updated in employees table successfully.
+  2022-04-19 19:57:50 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:58:57 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:58:58 INFO  Employees:150 - Record updated in employees table successfully.
+  2022-04-19 19:59:00 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:59:10 INFO  Employees:301 - Records selected to table in employees successfully.
+  2022-04-19 19:59:12 INFO  Employees:150 - Record updated in employees table successfully.
   

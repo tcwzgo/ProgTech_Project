@@ -61,7 +61,7 @@ public class EmployeeClass {
         }
         else
         {
-            this.email = email;
+            this.post = p;
         }
     }
 
@@ -80,17 +80,51 @@ public class EmployeeClass {
         }
         else
         {
-            this.salary = salary;
+            this.salary = s;
             notifyAllObservers();
         }
     }
 
     public EmployeeClass(String name, String email, String post, int salary)
     {
-        this.name = name;
-        this.email = email;
-        this.post = post;
-        this.salary = salary;
+        if (name.length() < 5)
+        {
+            JOptionPane.showMessageDialog(null, "The length of the name must be at least five character!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            this.name = name;
+        }
+
+        if (email.length() < 10)
+        {
+            JOptionPane.showMessageDialog(null, "The length of the email must be at least ten character!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+        else if (!email.contains("@"))
+        {
+            JOptionPane.showMessageDialog(null, "Email must contain '@'!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            this.email = email;
+        }
+
+        if (post.length() < 3)
+        {
+            JOptionPane.showMessageDialog(null, "The length of the post must be at least three characters!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            this.post = post;
+        }
+
+        if (salary < 120000 || salary > 1000000)
+        {
+            JOptionPane.showMessageDialog(null, "The salary must be in [120000;1000000] range!", "Warning!", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            this.salary = salary;
+        }
     }
 
     private List<Observer> observers = new ArrayList<Observer>();

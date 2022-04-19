@@ -2,10 +2,10 @@ create database Maintance;
 
 create table employees (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	name VARCHAR(40),
-	email VARCHAR(40),
-	post VARCHAR(40),
-	salary BIGINT	
+	name VARCHAR(40) not null,
+	email VARCHAR(40) not null,
+	post VARCHAR(40) not null,
+	salary BIGINT not null	
 );
 
 create table factories (

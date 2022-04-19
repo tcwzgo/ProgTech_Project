@@ -5,10 +5,7 @@ import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -245,6 +242,16 @@ public class Employees {
 
                 emp = new EmployeeClass(model.getValueAt(selectedRowIndex, 1).toString(), model.getValueAt(selectedRowIndex, 2).toString(),
                         model.getValueAt(selectedRowIndex, 3).toString(), Integer.parseInt(model.getValueAt(selectedRowIndex, 4).toString()));
+            }
+        });
+        salaryText.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                super.keyTyped(e);
+                char c = e.getKeyChar();
+                if ( ((c < '0') || (c > '9')) && (c != KeyEvent.VK_BACK_SPACE)) {
+                    e.consume();  // if it's not a number, ignore the event
+                }
             }
         });
     }
