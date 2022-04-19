@@ -41,7 +41,7 @@ public class Employees {
 
                 if (nameText.getText().equals("")  || emailText.getText().equals("") || postText.getText().equals("") || salaryText.getText().equals(""))
                 {
-                    JOptionPane.showMessageDialog(null, "Please fill in the textfields!", "Warning!", JOptionPane.PLAIN_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Please fill in the textfields!", "Warning!", JOptionPane.WARNING_MESSAGE);
                 }
                 else
                 {
@@ -81,24 +81,31 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-                    String name = nameText.getText();
+                if (nameText.getText().equals("")  || emailText.getText().equals("") || postText.getText().equals("") || salaryText.getText().equals(""))
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in the textfields or choose an employee from the table!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                {
+                    try{
+                        String name = nameText.getText();
 
-                    Connection connection = dbcon.Connect("maintance");
-                    PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
-                    pst.setString(1, name);
-                    pst.executeUpdate();
-                    table_load();
-                    nameText.setText("");
-                    emailText.setText("");
-                    postText.setText("");
-                    salaryText.setText("");
-                    JOptionPane.showMessageDialog(null, "Deleted succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
-                    logger.info("Record deleted in employees table successfully.");
-                } catch(Exception ex){
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
-                    logger.info("Deleting records in employess was unsuccessful.");
+                        Connection connection = dbcon.Connect("maintance");
+                        PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
+                        pst.setString(1, name);
+                        pst.executeUpdate();
+                        table_load();
+                        nameText.setText("");
+                        emailText.setText("");
+                        postText.setText("");
+                        salaryText.setText("");
+                        JOptionPane.showMessageDialog(null, "Deleted succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                        logger.info("Record deleted in employees table successfully.");
+                    } catch(Exception ex){
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
+                        logger.info("Deleting records in employess was unsuccessful.");
+                    }
                 }
             }
         });
@@ -106,31 +113,38 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-                    String name = nameText.getText();
-                    String email = emailText.getText();
-                    String post = postText.getText();
-                    String salary = salaryText.getText();
+                if (nameText.getText().equals("")  || emailText.getText().equals("") || postText.getText().equals("") || salaryText.getText().equals(""))
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in the textfields or choose an employee from the table!", "Warning!", JOptionPane.WARNING_MESSAGE);
+                }
+                else
+                {
+                    try{
+                        String name = nameText.getText();
+                        String email = emailText.getText();
+                        String post = postText.getText();
+                        String salary = salaryText.getText();
 
-                    Connection connection = dbcon.Connect("maintance");
-                    PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
-                    pst.setString(1, name);
-                    pst.setString(2, email);
-                    pst.setString(3, post);
-                    pst.setString(4, salary);
-                    pst.setString(5, name);
-                    pst.executeUpdate();
-                    table_load();
-                    nameText.setText("");
-                    emailText.setText("");
-                    postText.setText("");
-                    salaryText.setText("");
-                    JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
-                    logger.info("Record updated in employees table successfully.");
-                } catch(Exception ex){
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
-                    logger.info("Updating records in employess was unsuccessful.");
+                        Connection connection = dbcon.Connect("maintance");
+                        PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
+                        pst.setString(1, name);
+                        pst.setString(2, email);
+                        pst.setString(3, post);
+                        pst.setString(4, salary);
+                        pst.setString(5, name);
+                        pst.executeUpdate();
+                        table_load();
+                        nameText.setText("");
+                        emailText.setText("");
+                        postText.setText("");
+                        salaryText.setText("");
+                        JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                        logger.info("Record updated in employees table successfully.");
+                    } catch(Exception ex){
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
+                        logger.info("Updating records in employess was unsuccessful.");
+                    }
                 }
             }
         });
@@ -152,41 +166,47 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-                    String name = searchText.getText();
-
-                    Connection connection = dbcon.Connect("maintance");
-                    PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
-                    pst.setString(1, name);
-                    ResultSet rs = pst.executeQuery();
-
-                    if(rs.next())
-                    {
-                        String name_ = rs.getString(2);
-                        String email_ = rs.getString(3);
-                        String post_ = rs.getString(4);
-                        String salary_ = rs.getString(5);
-
-                        nameText.setText(name_);
-                        emailText.setText(email_);
-                        postText.setText(post_);
-                        salaryText.setText(salary_);
-                    }
-                    else
-                    {
-                        nameText.setText("");
-                        emailText.setText("");
-                        postText.setText("");
-                        salaryText.setText("");
-                        JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("A select query was successful.");
-                    }
-                } catch(Exception ex){
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
-                    logger.info("A select query was unsuccessful.");
+                if(searchText.getText().equals("") || searchText.getText().equals("Search by name"))
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in the textfield!", "Warning!", JOptionPane.WARNING_MESSAGE);
                 }
+                else
+                {
+                    try{
+                        String name = searchText.getText();
 
+                        Connection connection = dbcon.Connect("maintance");
+                        PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
+                        pst.setString(1, name);
+                        ResultSet rs = pst.executeQuery();
+
+                        if(rs.next())
+                        {
+                            String name_ = rs.getString(2);
+                            String email_ = rs.getString(3);
+                            String post_ = rs.getString(4);
+                            String salary_ = rs.getString(5);
+
+                            nameText.setText(name_);
+                            emailText.setText(email_);
+                            postText.setText(post_);
+                            salaryText.setText(salary_);
+                        }
+                        else
+                        {
+                            nameText.setText("");
+                            emailText.setText("");
+                            postText.setText("");
+                            salaryText.setText("");
+                            JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                            logger.info("A select query was successful.");
+                        }
+                    } catch(Exception ex){
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                        logger.info("A select query was unsuccessful.");
+                    }
+                }
             }
         });
         clearTxtfield.addActionListener(new ActionListener() {
