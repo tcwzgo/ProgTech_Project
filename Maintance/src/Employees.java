@@ -1,3 +1,4 @@
+import Observer.Boss;
 import Observer.EmployeeClass;
 import net.proteanit.sql.DbUtils;
 import org.apache.log4j.Logger;
@@ -35,6 +36,7 @@ public class Employees {
 
     private static Logger logger = Logger.getLogger(Employees.class);
     private static DBConnect dbcon = new DBConnect();
+    private static EmployeeClass emp;
 
     public Employees() {
         addBtn.addActionListener(new ActionListener() {
@@ -52,18 +54,21 @@ public class Employees {
                     email = emailText.getText();
                     post = postText.getText();
                     salary = salaryText.getText();
+                    EmployeeClass emp = new EmployeeClass(name, email, post, Integer.parseInt(salary));
 
                     try {
 
                         Connection connection = dbcon.Connect("maintance");
                         PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
-                        pst.setString(1, name);
-                        pst.setString(2, email);
-                        pst.setString(3, post);
-                        pst.setString(4, salary);
+                        pst.setString(1, emp.getName());
+                        pst.setString(2, emp.getEmail());
+                        pst.setString(3, emp.getPost());
+                        pst.setString(4, String.valueOf(emp.getSalary()));
                         pst.executeUpdate();
                         JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
                         logger.info("Record added to employees table succesfully.");
+                        emp.AddEmployee(emp);
+                        emp.ListEmployees();
                         nameText.setText("");
                         emailText.setText("");
                         postText.setText("");
@@ -75,8 +80,6 @@ public class Employees {
                         logger.info("Adding record to employees table was unsuccessful.");
                     }
                 }
-
-
             }
         });
         deleteBtn.addActionListener(new ActionListener() {
@@ -91,7 +94,7 @@ public class Employees {
                 {
                     try{
                         String name = nameText.getText();
-
+                        emp.DeleteByName(name);
                         Connection connection = dbcon.Connect("maintance");
                         PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
                         pst.setString(1, name);
@@ -127,6 +130,12 @@ public class Employees {
                         String post = postText.getText();
                         String salary = salaryText.getText();
 
+                        new Boss(emp);
+                        emp.setName(name);
+                        emp.setEmail(email);
+                        emp.setPost(post);
+                        emp.setSalary(Integer.parseInt(salary));
+
                         Connection connection = dbcon.Connect("maintance");
                         PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
                         pst.setString(1, name);
@@ -154,15 +163,15 @@ public class Employees {
             @Override
             public void actionPerformed(ActionEvent e) {
                 table_load();
+                getExistingEmployeesFromDb();
             }
         });
         cleartableBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //DefaultTableModel model = (DefaultTableModel) table.getModel();
-                //model.setRowCount(0);
-                //model.setColumnCount(0);
-                getExistingEmployeesFromDb();
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
+                model.setColumnCount(0);
             }
         });
         searchBtn.addActionListener(new ActionListener() {
@@ -233,6 +242,9 @@ public class Employees {
                 emailText.setText(model.getValueAt(selectedRowIndex, 2).toString());
                 postText.setText(model.getValueAt(selectedRowIndex, 3).toString());
                 salaryText.setText(model.getValueAt(selectedRowIndex, 4).toString());
+
+                emp = new EmployeeClass(model.getValueAt(selectedRowIndex, 1).toString(), model.getValueAt(selectedRowIndex, 2).toString(),
+                        model.getValueAt(selectedRowIndex, 3).toString(), Integer.parseInt(model.getValueAt(selectedRowIndex, 4).toString()));
             }
         });
     }
@@ -288,7 +300,7 @@ public class Employees {
 
     }
 
-    private void getExistingEmployeesFromDb()
+    private static void getExistingEmployeesFromDb()
     {
         try {
             ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
@@ -309,7 +321,7 @@ public class Employees {
                 EmployeeClass employeeClass = new EmployeeClass(outer.get(i).get(0), outer.get(i).get(1), outer.get(i).get(2), Integer.parseInt(outer.get(i).get(3)));
                 //System.out.println(employeeClass.getName() + " " + employeeClass.getEmail() + " " + employeeClass.getPost() + " " + employeeClass.getSalary());
                 employeeClass.AddEmployee(employeeClass);
-                //employeeClass.ListEmployees();
+                employeeClass.ListEmployees();
             }
         } catch (Exception ex) {
             ex.printStackTrace();

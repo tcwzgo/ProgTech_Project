@@ -122,4 +122,15 @@ public class EmployeeClass {
             System.out.println(employees.get(i).getName() + " " + employees.get(i).getEmail() + " " + employees.get(i).getPost()+ " " + employees.get(i).getSalary()) ;
         }
     }
+
+    public void DeleteByName(String name)
+    {
+        for(int i = 0; i < employees.size(); i++)
+        {
+            if(employees.get(i).getName() == name)
+            {
+                employees.remove(i);
+            }
+        }
+    }
 }
