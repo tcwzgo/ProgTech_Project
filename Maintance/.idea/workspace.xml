@@ -10,6 +10,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -78,7 +79,7 @@
       <workItem from="1650109046776" duration="2255000" />
       <workItem from="1650127736689" duration="3075000" />
       <workItem from="1650203573810" duration="12811000" />
-      <workItem from="1650381611524" duration="853000" />
+      <workItem from="1650381611524" duration="5364000" />
     </task>
     <servers />
   </component>
@@ -88,5 +89,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="factories window created" />
     <option name="LAST_COMMIT_MESSAGE" value="factories window created" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Employees.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Employees.java</url>
+          <line>223</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

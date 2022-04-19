@@ -1,3 +1,4 @@
+import Observer.EmployeeClass;
 import net.proteanit.sql.DbUtils;
 import org.apache.log4j.Logger;
 
@@ -10,6 +11,7 @@ import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class Employees {
     private JPanel Main;
@@ -157,9 +159,10 @@ public class Employees {
         cleartableBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DefaultTableModel model = (DefaultTableModel) table.getModel();
-                model.setRowCount(0);
-                model.setColumnCount(0);
+                //DefaultTableModel model = (DefaultTableModel) table.getModel();
+                //model.setRowCount(0);
+                //model.setColumnCount(0);
+                getExistingEmployeesFromDb();
             }
         });
         searchBtn.addActionListener(new ActionListener() {
@@ -285,4 +288,33 @@ public class Employees {
 
     }
 
+    private void getExistingEmployeesFromDb()
+    {
+        try {
+            ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
+            Connection connection = dbcon.Connect("maintance");
+            PreparedStatement pst = connection.prepareStatement("select * from employees");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next())
+            {
+                ArrayList<String> inner = new ArrayList<String>();
+                inner.add(rs.getString("name"));
+                inner.add(rs.getString("email"));
+                inner.add(rs.getString("post"));
+                inner.add(rs.getString("salary"));
+                outer.add(inner);
+            }
+            for (int i = 0; i < outer.size(); i++) {
+                //System.out.println(outer.get(i).get(0));
+                EmployeeClass employeeClass = new EmployeeClass(outer.get(i).get(0), outer.get(i).get(1), outer.get(i).get(2), Integer.parseInt(outer.get(i).get(3)));
+                //System.out.println(employeeClass.getName() + " " + employeeClass.getEmail() + " " + employeeClass.getPost() + " " + employeeClass.getSalary());
+                employeeClass.AddEmployee(employeeClass);
+                //employeeClass.ListEmployees();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
+            logger.info("Selecting records to arraylist in EmployeeClass was unsuccessful.");
+        }
+    }
 }
