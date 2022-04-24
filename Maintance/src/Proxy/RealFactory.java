@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class RealFactory extends Item {
 
+    // fields
     protected String companyName;
     protected String address;
     protected String dateOfInstitution;

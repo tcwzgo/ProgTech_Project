@@ -19,7 +19,7 @@ public class Factories {
     }
 
     private static Logger logger = Logger.getLogger(Employees.class);
-    private static DBConnect dbcon = new DBConnect("maintance");
+    private static DBConnect database = new DBConnect("maintance");
     private FactoryProxy factoryProxy;
 
     public static void showWindow()
