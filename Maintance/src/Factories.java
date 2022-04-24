@@ -1,3 +1,4 @@
+import Proxy.FactoryProxy;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class Factories {
 
     private static Logger logger = Logger.getLogger(Employees.class);
     private static DBConnect dbcon = new DBConnect("maintance");
+    private FactoryProxy factoryProxy;
 
     public static void showWindow()
     {
