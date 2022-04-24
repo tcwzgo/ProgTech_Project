@@ -32,7 +32,7 @@ public class Employees {
     private JButton clearTxtfield;
 
     private static Logger logger = Logger.getLogger(Employees.class);
-    private static DBConnect dbcon = new DBConnect();
+    private static DBConnect dbcon = new DBConnect("maintance");
     private static EmployeeClass emp;
 
     public Employees() {
@@ -55,7 +55,7 @@ public class Employees {
 
                     try {
 
-                        Connection connection = dbcon.Connect("maintance");
+                        Connection connection = dbcon.Connect();
                         PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
                         pst.setString(1, emp.getName());
                         pst.setString(2, emp.getEmail());
@@ -92,7 +92,7 @@ public class Employees {
                     try{
                         String name = nameText.getText();
                         emp.DeleteByName(name);
-                        Connection connection = dbcon.Connect("maintance");
+                        Connection connection = dbcon.Connect();
                         PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
                         pst.setString(1, name);
                         pst.executeUpdate();
@@ -133,7 +133,7 @@ public class Employees {
                         emp.setPost(post);
                         emp.setSalary(Integer.parseInt(salary));
 
-                        Connection connection = dbcon.Connect("maintance");
+                        Connection connection = dbcon.Connect();
                         PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
                         pst.setString(1, name);
                         pst.setString(2, email);
@@ -184,7 +184,7 @@ public class Employees {
                     try{
                         String name = searchText.getText();
 
-                        Connection connection = dbcon.Connect("maintance");
+                        Connection connection = dbcon.Connect();
                         PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
                         pst.setString(1, name);
                         ResultSet rs = pst.executeQuery();
@@ -294,7 +294,7 @@ public class Employees {
     private void table_load()
     {
         try {
-            Connection connection = dbcon.Connect("maintance");
+            Connection connection = dbcon.Connect();
             PreparedStatement pst = connection.prepareStatement("select * from employees");
             ResultSet rs = pst.executeQuery();
             table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -311,7 +311,7 @@ public class Employees {
     {
         try {
             ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
-            Connection connection = dbcon.Connect("maintance");
+            Connection connection = dbcon.Connect();
             PreparedStatement pst = connection.prepareStatement("select * from employees");
             ResultSet rs = pst.executeQuery();
             while (rs.next())

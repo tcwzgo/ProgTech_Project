@@ -5,14 +5,16 @@ import javax.swing.*;
 import java.sql.*;
 
 public class DBConnect {
+    protected String dbName;
+    public DBConnect(String dbName) { this.dbName = dbName; }
     private static Logger logger = Logger.getLogger(DBConnect.class);
+
     /**
      * function to connect to the database
-     * @param dbName the name of the database
      * @return the connection to be used in the statements
      * @throws Exception if the connection fails at the end
      */
-    public static Connection Connect(String dbName) throws Exception {
+    public Connection Connect() throws Exception {
 
         Connection connection;
 
@@ -40,19 +42,19 @@ public class DBConnect {
     protected void SelectAll(String tableName) throws Exception {
 
         PreparedStatement query = null;
-        Connection connection = this.Connect("maintanence");
+        Connection connection = this.Connect();
 
         try
         {
             query = connection.prepareStatement(String.format("select * from %s", tableName));
             ResultSet rs = query.executeQuery();
-            //table_1.setModel(DbUtils.resultSetToTableModel(rs));
+            logger.info("Select was successful.");
         }
         catch (SQLException e)
         {
             e.printStackTrace();
+            logger.warn("Select was unsuccessful.");
         }
-
     }
 
     /***
@@ -65,81 +67,67 @@ public class DBConnect {
     protected void Delete(String tableName, String field, String txtFieldValue) throws Exception {
 
         PreparedStatement query = null;
-        Connection connection = this.Connect("maintanence");
+        Connection connection = this.Connect();
 
         try {
             query = connection.prepareStatement(String.format("delete from %s where %s = ?", tableName, field));
             query.setString(1, txtFieldValue);
             query.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record deleted successfully!");
+            logger.info("Record deleted successfully.");
         }
 
         catch (SQLException e1)
         {
             e1.printStackTrace();
+            logger.warn("Delete was unsuccessful.");
         }
     }
 
     /***
      *
      * @param tableName name of the table in db
-     * @param fields the fields to insert (more readable if we use an array of Strings)
+     * @param sqlQuery Insert query
      * @throws Exception
      */
-    protected void Insert(String tableName, String[] fields, String[] txtFieldValues) throws Exception {
+    protected void Insert(String tableName, String sqlQuery) throws Exception {
 
         PreparedStatement query = null;
-        Connection connection = this.Connect("maintanence");
+        Connection connection = this.Connect();
         try {
-            query = connection.prepareStatement(String.format(
-                    "insert into %s(name, email, personal_number, salary)values(?, ?, ?, ?)", tableName));
-            query.setString(1, fields[0]);
-            query.setString(2, fields[1]);
-            query.setString(3, fields[2]);
-            query.setString(4, fields[3]);
+            query = connection.prepareStatement(sqlQuery);
             query.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Record ");
-            //table_load();
+            JOptionPane.showMessageDialog(null, "Record was inserted.");
+            logger.info("A record was inserted successfully.");
         }
 
         catch (SQLException e1)
         {
-
             e1.printStackTrace();
+            logger.warn("Insert was unsuccessful.");
         }
-
-
     }
 
     /***
-     *
-     * @param tableName name of the table in db
-     * @param fields fields to update in db
-     * @param txtFieldValues the values to update the fields with
+     * @param sqlQuery query
      * @throws Exception
      */
-    protected void Update(String tableName, String[] fields, String[] txtFieldValues) throws Exception {
+    protected void Update(String sqlQuery) throws Exception {
 
         PreparedStatement query = null;
-        Connection connection = this.Connect("maintanence");
+        Connection connection = this.Connect();
 
         try {
-            query = connection.prepareStatement(String.format(
-                    "update %s set %s = ?, %s = ?, %s = ?, %s = ? where %s = ?",
-                    tableName, fields[0], fields[1], fields[2], fields[3], fields[0]));
-            query.setString(1, txtFieldValues[0]);
-            query.setString(2, txtFieldValues[1]);
-            query.setString(3, txtFieldValues[2]);
-            query.setString(4, txtFieldValues[3]);
-            query.setString(5, txtFieldValues[4]);
-
+            query = connection.prepareStatement(sqlQuery);
             query.executeUpdate();
             JOptionPane.showMessageDialog(null, "Record updated successfully!");
+            logger.info("A record was successfully updated.");
         }
 
         catch (SQLException e1)
         {
             e1.printStackTrace();
+            logger.warn("Update was unsuccessful!");
         }
     }
 }

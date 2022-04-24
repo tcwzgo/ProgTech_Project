@@ -1,3 +1,5 @@
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 
 public class Factories {
@@ -11,10 +13,12 @@ public class Factories {
     private JButton btnUpdate;
     private JTable dataTable;
 
-
     public static void main(String[] args) {
         showWindow();
     }
+
+    private static Logger logger = Logger.getLogger(Employees.class);
+    private static DBConnect dbcon = new DBConnect("maintance");
 
     public static void showWindow()
     {
