@@ -1,5 +1,6 @@
 import Proxy.FactoryProxy;
 import Proxy.RealFactory;
+import jdk.jshell.spi.ExecutionControlProvider;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -57,7 +58,7 @@ public class Factories {
                     String dOInst = data.get(2);
                     factoryProxy.Add(name, addr, dOInst);
 
-                    String sql = String.format("Inser into factories (company_name, institution, address) " +
+                    String sql = String.format("inser into factories (company_name, institution, address) " +
                             "values (%s, %s, %s)", name, addr, dOInst);
                     database.Insert(sql);
 
@@ -69,7 +70,17 @@ public class Factories {
         btnDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ArrayList<String> data = getTextFieldContent();
+                String name = data.get(0);
 
+                try {
+                    database.Connect();
+                    factoryProxy.Delete(name);
+                    database.Delete("factories", "company_name", name);
+
+                } catch (Exception ex) {
+                    logger.warn(ex.getMessage());
+                }
             }
         });
         btnSearch.addActionListener(new ActionListener() {

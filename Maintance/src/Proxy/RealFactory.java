@@ -49,9 +49,17 @@ public class RealFactory extends Item {
     }
     @Override
     public void Delete(String companyName) {
-        for (int i = 0; i < factories.size(); i++) {
-            if (factories.get(i).getCompanyName().equals(companyName)) {
-                factories.remove(i);
+        if (factories.size() == 0) {
+            System.out.println("The list is empty! Nothing to delete!");
+        }
+        else {
+            for (int i = 0; i < factories.size(); i++) {
+                if (factories.get(i).getCompanyName().equals(companyName)) {
+                    factories.remove(i);
+                }
+                else {
+                    System.out.println("No Factory with the specified name: " + companyName);
+                }
             }
         }
     }
