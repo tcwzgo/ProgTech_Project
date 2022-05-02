@@ -56,7 +56,8 @@ public class RealFactory extends Item {
         }
     }
     @Override
-    public void Add(RealFactory factory) {
+    public void Add(String name, String addr, String dOInst) {
+        RealFactory factory = new RealFactory(name, addr, dOInst);
         factories.add(factory);
     }
     @Override
@@ -77,4 +78,12 @@ public class RealFactory extends Item {
         return String.format("Company name: %s\nAddress: %s\nDate of institution: %s",
                 this.companyName, this.address, this.dateOfInstitution);
     }
+
+    public RealFactory(String companyName, String address, String dateOfInstitution) {
+        setCompanyName(companyName);
+        setAddress(address);
+        setDateOfInstitution(dateOfInstitution);
+    }
+
+    public RealFactory() { }
 }

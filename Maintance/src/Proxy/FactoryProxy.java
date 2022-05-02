@@ -17,9 +17,8 @@ public class FactoryProxy extends Item {
     }
 
     @Override
-    public void Add(RealFactory factory) {
-        if (realFactory == null) { realFactory = new RealFactory(); }
-        realFactory.Add(factory);
+    public void Add(String name, String addr, String dOInst) {
+        realFactory.Add(name, addr, dOInst);
     }
 
     @Override

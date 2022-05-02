@@ -85,12 +85,10 @@ public class DBConnect {
     }
 
     /***
-     *
-     * @param tableName name of the table in db
      * @param sqlQuery Insert query
      * @throws Exception
      */
-    protected void Insert(String tableName, String sqlQuery) throws Exception {
+    protected void Insert(String sqlQuery) throws Exception {
 
         PreparedStatement query = null;
         Connection connection = this.Connect();

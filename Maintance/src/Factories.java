@@ -1,9 +1,11 @@
 import Proxy.FactoryProxy;
+import Proxy.RealFactory;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Factories {
     private JPanel Main;
@@ -24,12 +26,44 @@ public class Factories {
     private static DBConnect database = new DBConnect("maintance");
     private FactoryProxy factoryProxy;
 
+    /**
+     * @return txtFields[] array containing data from input
+     */
+    private ArrayList<String> getTextFieldContent() {
+
+        ArrayList<String> txtFields = new ArrayList<>();
+        if (tfCompanyName.getText().equals("") || tfInstitution.getText().equals("") || tfAddress.getText().equals("")) {
+            System.out.println("Fill out every input!");
+            logger.info("Fill out every input!");
+        } else {
+            txtFields.add(tfCompanyName.getText());
+            txtFields.add(tfInstitution.getText());
+            txtFields.add(tfAddress.getText());
+        }
+        return txtFields;
+    }
+
     public Factories() {
 
         btnAdd.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    database.Connect();
 
+                    ArrayList<String> data = getTextFieldContent();
+                    String name = data.get(0);
+                    String addr = data.get(1);
+                    String dOInst = data.get(2);
+                    factoryProxy.Add(name, addr, dOInst);
+
+                    String sql = String.format("Inser into factories (company_name, institution, address) " +
+                            "values (%s, %s, %s)", name, addr, dOInst);
+                    database.Insert(sql);
+
+                } catch (Exception exception) {
+                    logger.warn("Connection failed!" + exception.getMessage());
+                }
             }
         });
         btnDelete.addActionListener(new ActionListener() {

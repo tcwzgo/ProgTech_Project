@@ -4,7 +4,6 @@
     <list default="true" id="69a025f0-78ec-4e0d-a447-207af38ef01a" name="Changes" comment="factories window created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Factories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy/RealFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/RealFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
