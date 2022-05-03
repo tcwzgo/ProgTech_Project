@@ -1,6 +1,4 @@
 import Proxy.FactoryProxy;
-import Proxy.RealFactory;
-import jdk.jshell.spi.ExecutionControlProvider;
 import org.apache.log4j.Logger;
 
 import javax.swing.*;
@@ -18,6 +16,8 @@ public class Factories {
     private JButton btnDelete;
     private JButton btnUpdate;
     private JTable dataTable;
+    private JSpinner spId;
+    private JLabel lblId;
 
     public static void main(String[] args) {
         showWindow();
@@ -44,6 +44,12 @@ public class Factories {
         return txtFields;
     }
 
+    /***
+     * Constructor
+     * Listening to all 'click' events on buttons
+     * Using database.Connect() to set the connection
+     * Using the according service through the proxy in the event body
+     */
     public Factories() {
 
         btnAdd.addActionListener(new ActionListener() {
@@ -63,7 +69,7 @@ public class Factories {
                     database.Insert(sql);
 
                 } catch (Exception exception) {
-                    logger.warn("Connection failed!" + exception.getMessage());
+                    logger.warn("Insert failed due to error: " + exception.getMessage());
                 }
             }
         });
@@ -79,20 +85,33 @@ public class Factories {
                     database.Delete("factories", "company_name", name);
 
                 } catch (Exception ex) {
-                    logger.warn(ex.getMessage());
+                    logger.warn("Delete failed due to error: " + ex.getMessage());
                 }
             }
         });
         btnSearch.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    database.Connect();
+                    factoryProxy.ListAll();
+                    database.SelectAll("factories");
+                } catch (Exception ex) {
+                    logger.warn("Select failed due to error: " + ex.getMessage());                }
             }
         });
         btnUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                try {
+                    ArrayList<String> data = getTextFieldContent();
+                    database.Connect();
+                    factoryProxy.Update((Integer) spId.getValue(),
+                            data.get(0), data.get(1), data.get(2));
+                    logger.info("Record updated successfully!");
+                } catch (Exception ex) {
+                    logger.warn("Update failed due to error: " + ex.getMessage());
+                }
             }
         });
     }

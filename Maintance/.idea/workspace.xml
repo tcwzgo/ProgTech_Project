@@ -3,8 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="69a025f0-78ec-4e0d-a447-207af38ef01a" name="Changes" comment="factories window created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/DBConnect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/Boss.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/EmployeeClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/Observer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Factories.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Factories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy/RealFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/RealFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +68,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Employees">
+  <component name="RunManager" selected="Application.Factories">
     <configuration name="Base" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Base" />
       <module name="Maintance" />
@@ -74,9 +92,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Factories" />
         <item itemvalue="Application.Employees" />
         <item itemvalue="Application.Base" />
-        <item itemvalue="Application.Factories" />
       </list>
     </recent_temporary>
   </component>
