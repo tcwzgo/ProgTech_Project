@@ -24,8 +24,8 @@ public class Factories {
     }
 
     private static Logger logger = Logger.getLogger(Employees.class);
-    private static DBConnect database = new DBConnect("maintance");
-    private FactoryProxy factoryProxy;
+    private static DBConnect database = new DBConnect("maintanence");
+    private FactoryProxy factoryProxy = new FactoryProxy();
 
     /**
      * @return txtFields[] array containing data from input
@@ -57,17 +57,19 @@ public class Factories {
             public void actionPerformed(ActionEvent e) {
                 try {
                     database.Connect();
-
                     ArrayList<String> data = getTextFieldContent();
                     String name = data.get(0);
-                    String addr = data.get(1);
-                    String dOInst = data.get(2);
+                    String dOInst = data.get(1);
+                    String addr = data.get(2);
                     factoryProxy.Add(name, addr, dOInst);
-
-                    String sql = String.format("inser into factories (company_name, institution, address) " +
-                            "values (%s, %s, %s)", name, addr, dOInst);
-                    database.Insert(sql);
-
+                    if (dOInst.contains(",")) {
+                        String sql = "INSERT INTO `factories`(`company_name`, `institution`, `address`)" +
+                                " VALUES ('"+ name +"', STR_TO_DATE('"+ dOInst +"', '%Y,%m,%d'),'"+ addr +"');";
+                        logger.info(sql);
+                        database.Insert(sql);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "The date should be separated with ','!");
+                    }
                 } catch (Exception exception) {
                     logger.warn("Insert failed due to error: " + exception.getMessage());
                 }
@@ -106,7 +108,12 @@ public class Factories {
                 try {
                     ArrayList<String> data = getTextFieldContent();
                     database.Connect();
+                    logger.info(data);
+
                     factoryProxy.Update((Integer) spId.getValue(),
+                            data.get(0), data.get(1), data.get(2));
+
+                    database.Update((Integer) spId.getValue(),
                             data.get(0), data.get(1), data.get(2));
                     logger.info("Record updated successfully!");
                 } catch (Exception ex) {

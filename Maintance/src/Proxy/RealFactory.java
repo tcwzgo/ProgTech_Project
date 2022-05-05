@@ -23,7 +23,7 @@ public class RealFactory extends Item {
 
     // Setters
     private void setCompanyName(String companyName) {
-        if (!(companyName.length() > 5)) {
+        if (companyName.length() >= 5) {
             this.companyName = companyName;
         } else {
             System.out.println("The name must be at least 5 characters long!");
@@ -33,7 +33,7 @@ public class RealFactory extends Item {
         this.address = address;
     }
     private void setDateOfInstitution(String dateOfInstitution) {
-        if (!(dateOfInstitution.matches("[a-zA-Z]+"))) {
+        if (!(dateOfInstitution.matches("[a-zA-Z]"))) {
             this.dateOfInstitution = dateOfInstitution;
         } else {
             System.out.println("Date cannot contain alphabets!");

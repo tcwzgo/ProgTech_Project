@@ -3,6 +3,7 @@ import org.apache.log4j.chainsaw.Main;
 import org.apache.log4j.Logger;
 import javax.swing.*;
 import java.sql.*;
+import java.util.Arrays;
 
 public class DBConnect {
     protected String dbName;
@@ -107,21 +108,34 @@ public class DBConnect {
     }
 
     /***
-     * @param sqlQuery query
-     * @throws Exception
+     * SQL Update
+     * @param id
+     * @param name
+     * @param dOInst
+     * @param addr
      */
-    protected void Update(String sqlQuery) throws Exception {
+    protected void Update(int id, String name, String dOInst, String addr) throws Exception {
 
         PreparedStatement query = null;
         Connection connection = this.Connect();
 
         try {
-            query = connection.prepareStatement(sqlQuery);
-            query.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Record updated successfully!");
-            logger.info("A record was successfully updated.");
+            // want to get the special char that separates the numbers in the date
+            // and replace that with the ',' char that mysql accepts
+            if (!(dOInst.contains(","))) {
+                JOptionPane.showMessageDialog(null, "The date should be separated with ','!");
+            } else {
+                String sqlQuery = "UPDATE `factories` SET `company_name`='" + name + "',"+
+                        "`institution`=STR_TO_DATE('" + dOInst + "', %Y,%m,%d)," +
+                        "`address`='" + addr + "' " +
+                        "WHERE `id` = " + id;
+                logger.info(sqlQuery);
+                query = connection.prepareStatement(sqlQuery);
+                query.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Record updated successfully!");
+                logger.info("A record was successfully updated.");
+            }
         }
-
         catch (SQLException e1)
         {
             e1.printStackTrace();

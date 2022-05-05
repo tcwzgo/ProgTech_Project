@@ -112,4 +112,52 @@
   2022-04-19 19:59:00 INFO  Employees:301 - Records selected to table in employees successfully.
   2022-04-19 19:59:10 INFO  Employees:301 - Records selected to table in employees successfully.
   2022-04-19 19:59:12 INFO  Employees:150 - Record updated in employees table successfully.
+  2022-05-04 16:54:00 WARN  Employees:72 - Insert failed due to error: Couldn't connect to the database...
+  2022-05-04 16:59:25 WARN  Employees:72 - Insert failed due to error: Couldn't connect to the database...
+  2022-05-04 17:02:43 WARN  Employees:72 - Insert failed due to error: Cannot invoke "Proxy.FactoryProxy.Add(String, String, String)" because "this.this$0.factoryProxy" is null
+  2022-05-04 17:04:03 WARN  Employees:72 - Insert failed due to error: Cannot invoke "Proxy.RealFactory.Add(String, String, String)" because "this.realFactory" is null
+  2022-05-04 17:04:43 INFO  DBConnect:51 - Select was successful.
+  2022-05-04 17:08:00 WARN  Employees:72 - Insert failed due to error: Cannot invoke "Proxy.RealFactory.Add(String, String, String)" because "this.realFactory" is null
+  2022-05-04 17:09:16 WARN  Employees:72 - Insert failed due to error: Cannot invoke "Proxy.RealFactory.Add(String, String, String)" because "this.realFactory" is null
+  2022-05-04 17:09:54 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:10:32 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:11:05 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:12:34 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:14:22 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:14:33 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:16:57 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:17:42 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:20:11 INFO  Employees:68 - inser into factories (company_name, institution, address) values (somename, 1886.11.23, somaddr)
+  2022-05-04 17:20:11 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:20:49 INFO  Employees:68 - insert into factories (company_name, institution, address) values (somename, 1886.11.23, somaddr)
+  2022-05-04 17:20:49 WARN  DBConnect:105 - Insert was unsuccessful.
+  2022-05-04 17:27:10 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('somename','1886.11.23','somaddr');
+  2022-05-04 17:27:12 INFO  DBConnect:99 - A record was inserted successfully.
+  2022-05-04 17:27:54 INFO  DBConnect:77 - Record deleted successfully.
+  2022-05-04 17:39:59 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('Bosch','1886.11.23','Gerlingen, Germany');
+  2022-05-04 17:40:02 INFO  DBConnect:99 - A record was inserted successfully.
+  2022-05-04 17:41:55 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('Bosch','1886.11.23','Gerlingen, Germany');
+  2022-05-04 17:41:58 INFO  DBConnect:99 - A record was inserted successfully.
+  2022-05-04 17:42:28 INFO  DBConnect:51 - Select was successful.
+  2022-05-04 17:44:04 WARN  Employees:114 - Update failed due to error: Index 1 out of bounds for length 1
+  2022-05-04 17:53:12 WARN  Employees:114 - Update failed due to error: Index 1 out of bounds for length 1
+  2022-05-04 17:53:28 WARN  Employees:114 - Update failed due to error: Index 2 out of bounds for length 1
+  2022-05-04 17:54:02 WARN  Employees:114 - Update failed due to error: Index 2 out of bounds for length 1
+  2022-05-04 17:56:00 WARN  Employees:114 - Update failed due to error: Index 4 out of bounds for length 1
+  2022-05-05 17:14:37 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('Google','1955.11.31','Manhattan, USA');
+  2022-05-05 17:14:37 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:14:54 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('Google','1955,11,31','Manhattan, USA');
+  2022-05-05 17:14:54 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:17:53 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('google ','STR_TO_DATE('USA', '%Y,%m,%d')','1886,11,23');
+  2022-05-05 17:17:53 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:19:14 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('google', STR_TO_DATE('1889,11,23', '%Y,%m,%d'),'usa');
+  2022-05-05 17:19:17 INFO  DBConnect:100 - A record was inserted successfully.
+  2022-05-05 17:19:45 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE('1889.11.23', '%Y,%m,%d'),'usa');
+  2022-05-05 17:19:45 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:25:09 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('oracle', STR_TO_DATE('1667.45.45', '%Y,%m,%d'),'nemtudom');
+  2022-05-05 17:25:09 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:25:09 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('oracle', STR_TO_DATE('1667.45.45', '%Y,%m,%d'),'nemtudom');
+  2022-05-05 17:25:09 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 17:28:39 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE('1884,11,23', '%Y,%m,%d'),'test');
+  2022-05-05 17:28:41 INFO  DBConnect:100 - A record was inserted successfully.
   

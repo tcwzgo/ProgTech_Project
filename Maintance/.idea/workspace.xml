@@ -3,26 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="69a025f0-78ec-4e0d-a447-207af38ef01a" name="Changes" comment="factories window created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Base.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/DBConnect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Employees.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/Boss.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/EmployeeClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Observer/Observer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maintance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Maintance.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBConnect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Factories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Proxy/RealFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/RealFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="322" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Java dolgok/rs2xml/rs2xml.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mysql-connector-java-8.0.29.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

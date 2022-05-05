@@ -19,21 +19,21 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Java dolgok/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../rs2xml.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../../../rs2xml.jar!/src" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Java dolgok/rs2xml/rs2xml.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../mysql-connector-java-8.0.29.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/../../../Java dolgok/rs2xml/rs2xml.jar!/src" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
