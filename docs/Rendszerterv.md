@@ -45,3 +45,20 @@ FOLYT
 * Main menu:
     - Employee Form
     - Factories Form
+
+## 6. Fizikai környezet
+---
+### Fejlesztői környezet:
+    - Visual Studio Code
+    - Intellij Idea
+    - Git
+    - XAMPP
+
+### Futtatási környezet:
+    A program futtatásához elsősorban egy számítógép szükséges, amire telepítve van a Java. A folyamatot megkönnyíti, ha telepítjük a Intellij Idea-t, mivel azt egyszerű kezelni.
+
+### Specifikáció:
+    - Számítógép egy stabil operációs rendszerrel
+    - Internetkapcsolat
+    - Java
+    - Intellij Idea
