@@ -94,3 +94,8 @@ A hibabejelentésnél a felhasználó leírhatja mi a hiba és opcionálisan meg
 A program kapcsolódik az adatbázishoz, ha nem sikerül, logolásra kerül a probléma.
 Csatlakozás után a formok táblázatában megjelennek az adatok, amik a gombok és
 szöveges beviteli mezők segítségével módosíthatók.
+
+## 11. Implementációs terv
+---
+Java: A GUI felület java nyelven fog készülni. Ezeket a technológiákat amennyire csak lehet külön fájlokba írva készítjük, és úgy fogjuk egymáshoz csatolni a jobb átláthatóság, könnyebb változtathatóság, és könnyebb bővítés érdekében. A programban megjelenítjük és alkalmazzuk az adatbázis kezelést emellett alkalmazzuk a swing
+grafikus interfészét.
