@@ -82,3 +82,8 @@ Felhasznált technológiák:
 A program lokálisan működik.
 A futtatáshoz szükség van MySQL elérésre, illetve internetkapcsolatra.
 A felhasználónak le kell töltenie az alkalmazást a saját gépére, biztosítania kell a localhost elérését XAMPP-on keresztül.
+
+## 9. Karbantartási terv
+--
+A rendszer karbantartása időszakos lesz. Hibákat a felhasználó emailen keresztül tudja jelezni a fejlesztők felé.
+A hibabejelentésnél a felhasználó leírhatja mi a hiba és opcionálisan megadhatja a folyamatot amivel a hiba történt (opcionálisan képernyőkép feltöltése). Az üzenetet csak a fejlesztők látják.
