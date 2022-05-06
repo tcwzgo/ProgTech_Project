@@ -9,3 +9,7 @@ lekérdezheti, módosíthatja, törölheti és frissítheti a dolgozók illetve 
 műveleteknél fontos szempont, hogy adatok módosításakor a program figyelmeztet arról, hogy a főnököt értesítette a
 változásokról. 
 FOLYT
+
+## 2. Üzleti folyamatok modellje
+---
+![Image](https://github.com/tcwzgo/ProgTech_Project/blob/main/pictures/uzletifolyamatok.png)
