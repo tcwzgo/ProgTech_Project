@@ -99,3 +99,18 @@ szöveges beviteli mezők segítségével módosíthatók.
 ---
 Java: A GUI felület java nyelven fog készülni. Ezeket a technológiákat amennyire csak lehet külön fájlokba írva készítjük, és úgy fogjuk egymáshoz csatolni a jobb átláthatóság, könnyebb változtathatóság, és könnyebb bővítés érdekében. A programban megjelenítjük és alkalmazzuk az adatbázis kezelést emellett alkalmazzuk a swing
 grafikus interfészét.
+
+## 12. Tesztterv
+---
+## Tesztelési eljárások
+
+**Alfa teszt:** Az alfa tesztet a fejlesztők végzik. A alfa teszt célja, hogy teszteljük a már meglévő funkciókat, hogy azok az elvártnak megfelelően működnek-e. A teszt akkor tekinthető sikeresnek, ha különböző GUI felületeken minden funkció megfelelően működik.
+
+## Tesztelendő funkciók
+**Backend Service:** Képesnek kell lennie több klienst egyidőben kiszolgálni. Képesnek kell lennie, az adatbázisban műveleteket végezni (hozzáadni, törölni, módosítani).
+
+## Architekturális terv
+A kommunikáció a Java fordítóprogramján keresztül történik.
+
+### Adatbázis:
+A rendszer adatainak tárolásához szükséges egy Adatbázis, a rendszerhez MySql-t alkalmazunk.
