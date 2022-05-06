@@ -27,7 +27,7 @@ FOLYT
     - Gyorsnak kell lennie
     - Felhasználóbarátnak kell lennie
 
-## 5. Funkcionális terv
+## 4. Funkcionális terv
 ---
 ### Rendszerszereplők:
     - Felhasználó
@@ -46,7 +46,7 @@ FOLYT
     - Employee Form
     - Factories Form
 
-## 6. Fizikai környezet
+## 5. Fizikai környezet
 ---
 ### Fejlesztői környezet:
     - Visual Studio Code
@@ -63,8 +63,8 @@ FOLYT
     - Java
     - Intellij Idea
 
-## 7. Architekturális terv
---
+## 6. Architekturális terv
+---
 Felhasznált technológiák:
  1. MySQL:
     A MySQL kezeli az adatbázisunkat, itt tároljuk el az adatokat.
@@ -77,30 +77,30 @@ Felhasznált technológiák:
     Az adatbázishoz a connector package használatával tud kapcsolódni, mysql connect használatával.
     A logolás a Log4j használatával történik, amivel az adatbázis műveleteket logoljuk egy fájlba.
 
-## 8. Telepítési terv
---
+## 7. Telepítési terv
+---
 A program lokálisan működik.
 A futtatáshoz szükség van MySQL elérésre, illetve internetkapcsolatra.
 A felhasználónak le kell töltenie az alkalmazást a saját gépére, biztosítania kell a localhost elérését XAMPP-on keresztül.
 
-## 9. Karbantartási terv
---
+## 8. Karbantartási terv
+---
 A rendszer karbantartása időszakos lesz. Hibákat a felhasználó emailen keresztül tudja jelezni a fejlesztők felé.
 A hibabejelentésnél a felhasználó leírhatja mi a hiba és opcionálisan megadhatja a folyamatot amivel a hiba történt (opcionálisan képernyőkép feltöltése). Az üzenetet csak a fejlesztők látják.
 
-## 10. Adatbázis terv
---
+## 9. Adatbázis terv
+---
 
 A program kapcsolódik az adatbázishoz, ha nem sikerül, logolásra kerül a probléma.
 Csatlakozás után a formok táblázatában megjelennek az adatok, amik a gombok és
 szöveges beviteli mezők segítségével módosíthatók.
 
-## 11. Implementációs terv
+## 10. Implementációs terv
 ---
 Java: A GUI felület java nyelven fog készülni. Ezeket a technológiákat amennyire csak lehet külön fájlokba írva készítjük, és úgy fogjuk egymáshoz csatolni a jobb átláthatóság, könnyebb változtathatóság, és könnyebb bővítés érdekében. A programban megjelenítjük és alkalmazzuk az adatbázis kezelést emellett alkalmazzuk a swing
 grafikus interfészét.
 
-## 12. Tesztterv
+## 11. Tesztterv
 ---
 ## Tesztelési eljárások
 
