@@ -76,4 +76,9 @@ Felhasznált technológiák:
     Az adatbázisből betölti az adatokat, szükség esetén hozzáad, töröl, módosít.
     Az adatbázishoz a connector package használatával tud kapcsolódni, mysql connect használatával.
     A logolás a Log4j használatával történik, amivel az adatbázis műveleteket logoljuk egy fájlba.
-    
+
+## 8. Telepítési terv
+--
+A program lokálisan működik.
+A futtatáshoz szükség van MySQL elérésre, illetve internetkapcsolatra.
+A felhasználónak le kell töltenie az alkalmazást a saját gépére, biztosítania kell a localhost elérését XAMPP-on keresztül.
