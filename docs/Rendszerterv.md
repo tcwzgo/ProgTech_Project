@@ -62,3 +62,18 @@ FOLYT
     - Internetkapcsolat
     - Java
     - Intellij Idea
+
+## 7. Architekturális terv
+--
+Felhasznált technológiák:
+ 1. MySQL:
+    A MySQL kezeli az adatbázisunkat, itt tároljuk el az adatokat.
+    A program "query"-n keresztül kommunikál az adatbázissal, lekérdezéseket, müveleket végez el benne.
+    XAMPP-al vezérelt, localhost-on elérhető.
+2.  Java:   
+    Intellij Idea fejlesztői környezetben folyik a programozás.
+    A Java program kezelői felülete Swing használatával hoztuk létre, ennek segítségével rendezzük el a gombokat, képeket, feliratokat, megjelenő ablak méretét.
+    Az adatbázisből betölti az adatokat, szükség esetén hozzáad, töröl, módosít.
+    Az adatbázishoz a connector package használatával tud kapcsolódni, mysql connect használatával.
+    A logolás a Log4j használatával történik, amivel az adatbázis műveleteket logoljuk egy fájlba.
+    
