@@ -87,3 +87,10 @@ A felhasználónak le kell töltenie az alkalmazást a saját gépére, biztosí
 --
 A rendszer karbantartása időszakos lesz. Hibákat a felhasználó emailen keresztül tudja jelezni a fejlesztők felé.
 A hibabejelentésnél a felhasználó leírhatja mi a hiba és opcionálisan megadhatja a folyamatot amivel a hiba történt (opcionálisan képernyőkép feltöltése). Az üzenetet csak a fejlesztők látják.
+
+## 10. Adatbázis terv
+--
+
+A program kapcsolódik az adatbázishoz, ha nem sikerül, logolásra kerül a probléma.
+Csatlakozás után a formok táblázatában megjelennek az adatok, amik a gombok és
+szöveges beviteli mezők segítségével módosíthatók.
