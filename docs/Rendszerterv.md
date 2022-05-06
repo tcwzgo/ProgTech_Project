@@ -26,3 +26,22 @@ FOLYT
     - Pontosnak kell lennie
     - Gyorsnak kell lennie
     - Felhasználóbarátnak kell lennie
+
+## 5. Funkcionális terv
+---
+### Rendszerszereplők:
+    - Felhasználó
+
+### Rendszerhasználati esetek és lefutásaik:
+
+* Felhasználó:
+    - Gombok segítségével navigálható a program
+    - Szöveges bevitelő mezők segítik a munkát
+    - Az adatok táblázatban jelennek meg
+
+### Menü-hierarchiák:
+---
+
+* Main menu:
+    - Employee Form
+    - Factories Form
