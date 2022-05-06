@@ -13,3 +13,16 @@ FOLYT
 ## 2. Üzleti folyamatok modellje
 ---
 ![Image](https://github.com/tcwzgo/ProgTech_Project/blob/main/pictures/uzletifolyamatok.png)
+
+## 3. Követelmények
+---
+### Funkcionális követelmények:
+    - Létező adatbázis
+    - Adatbázis műveletek megvalósítása
+    - Tervezési minták megvalósítása
+
+### Nem funkcionális követelmény:
+    - A programnak átláthatónak kell lennie
+    - Pontosnak kell lennie
+    - Gyorsnak kell lennie
+    - Felhasználóbarátnak kell lennie
