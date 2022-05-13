@@ -6,7 +6,9 @@ import java.util.List;
 
 public class EmployeeClass {
     private String name;
-
+    private String email;
+    private String post;
+    private int salary;
     public String getName()
     {
         return name;
@@ -23,9 +25,6 @@ public class EmployeeClass {
             this.name = n;
         }
     }
-
-    private String email;
-
     public String getEmail()
     {
         return email;
@@ -45,9 +44,6 @@ public class EmployeeClass {
             this.email = e;
         }
     }
-
-    private String post;
-
     public String getPost()
     {
         return post;
@@ -64,9 +60,6 @@ public class EmployeeClass {
             this.post = p;
         }
     }
-
-    private int salary;
-
     public int getSalary()
     {
         return salary;
