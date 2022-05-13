@@ -142,6 +142,9 @@ public class EmployeeClass {
         }
     }
 
+    public int Size(){
+        return employees.size();
+    }
     public void ListEmployees()
     {
         for(int i = 0; i < employees.size(); i++)
