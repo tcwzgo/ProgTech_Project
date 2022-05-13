@@ -74,7 +74,7 @@ public class Employees {
                     } catch(Exception ex){
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Adding record to employees table was unsuccessful.");
+                        logger.warn("Adding record to employees table was unsuccessful.");
                     }
                 }
             }
@@ -106,7 +106,7 @@ public class Employees {
                     } catch(Exception ex){
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Deleting records in employess was unsuccessful.");
+                        logger.warn("Deleting records in employess was unsuccessful.");
                     }
                 }
             }
@@ -151,7 +151,7 @@ public class Employees {
                     } catch(Exception ex){
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Updating records in employess was unsuccessful.");
+                        logger.warn("Updating records in employess was unsuccessful.");
                     }
                 }
             }
@@ -213,7 +213,7 @@ public class Employees {
                     } catch(Exception ex){
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("A select query was unsuccessful.");
+                        logger.warn("A select query was unsuccessful.");
                     }
                 }
             }
@@ -333,7 +333,7 @@ public class Employees {
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
-            logger.info("Selecting records to arraylist in EmployeeClass was unsuccessful.");
+            logger.warn("Selecting records to arraylist in EmployeeClass was unsuccessful.");
         }
     }
 }

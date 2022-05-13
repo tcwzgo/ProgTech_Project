@@ -42,7 +42,7 @@ public class EmployeeClass {
             JOptionPane.showMessageDialog(null, "Email must contain '@'!", "Warning!", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            this.email = email;
+            this.email = e;
         }
     }
 
