@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69a025f0-78ec-4e0d-a447-207af38ef01a" name="Changes" comment="factories window created">
+      <change afterPath="$PROJECT_DIR$/src/tests/FactoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Factories$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Factories$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Factories$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Factories$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Factories.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Factories.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Maintance/Proxy/FactoryProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Maintance/Proxy/FactoryProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Maintance.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Maintance.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,11 +40,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="322" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../mysql-connector-java-8.0.29.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../rs2xml.jar" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -120,21 +116,5 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="factories window created" />
     <option name="LAST_COMMIT_MESSAGE" value="factories window created" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Proxy/RealFactory.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Proxy/RealFactory.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
