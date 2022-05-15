@@ -28,31 +28,32 @@ FOLYT
     - Felhasználóbarátnak kell lennie
 
 ## 4. Funkcionális terv
----
+A első kezelőfelületen kiválaszthatjuk, hogy melyik karbantartási modulba szeretnénk belépni (Employees / Factories). Mindkettő felületen lesz egy kattintható táblázat amelyben megjelennek a rekordok, ezeket tudja a felhasználó törölni, frissíteni, újat felvenni illetve listázni. Új adat felvétele esetén a felület bal oldalán található input mezőkbe tudja felvinni az adatokat, majd a lent található gombokkal tudja elvégezni az adott műveletet.
 ### Rendszerszereplők:
     - Felhasználó
+    - Rendszeradmin
 
 ### Rendszerhasználati esetek és lefutásaik:
 
 * Felhasználó:
     - Gombok segítségével navigálható a program
-    - Szöveges bevitelő mezők segítik a munkát
+    - Szöveges beviteli mezők segítik a munkát
     - Az adatok táblázatban jelennek meg
 
 ### Menü-hierarchiák:
----
-
 * Main menu:
     - Employee Form
     - Factories Form
 
 ## 5. Fizikai környezet
----
+
+
 ### Fejlesztői környezet:
-    - Visual Studio Code
     - Intellij Idea
+    - Visual Studio Code
     - Git
-    - XAMPP
+    - XAMPP / WAMP
+    - phpMyAdmin
 
 ### Futtatási környezet:
     A program futtatásához elsősorban egy számítógép szükséges, amire telepítve van a Java. A folyamatot megkönnyíti, ha telepítjük a Intellij Idea-t, mivel azt egyszerű kezelni.
@@ -70,7 +71,7 @@ Felhasznált technológiák:
     A MySQL kezeli az adatbázisunkat, itt tároljuk el az adatokat.
     A program "query"-n keresztül kommunikál az adatbázissal, lekérdezéseket, müveleket végez el benne.
     XAMPP-al vezérelt, localhost-on elérhető.
-2.  Java:   
+ 2. Java:   
     Intellij Idea fejlesztői környezetben folyik a programozás.
     A Java program kezelői felülete Swing használatával hoztuk létre, ennek segítségével rendezzük el a gombokat, képeket, feliratokat, megjelenő ablak méretét.
     Az adatbázisből betölti az adatokat, szükség esetén hozzáad, töröl, módosít.
@@ -81,7 +82,8 @@ Felhasznált technológiák:
 ---
 A program lokálisan működik.
 A futtatáshoz szükség van MySQL elérésre, illetve internetkapcsolatra.
-A felhasználónak le kell töltenie az alkalmazást a saját gépére, biztosítania kell a localhost elérését XAMPP-on keresztül.
+A felhasználónak klónoznia kell a projektet a kódtárból, illetve szüksége van egy futó XAMPP / WAMP szerverre,
+amelyen elérhető a phpMyAdmin.
 
 ## 8. Karbantartási terv
 ---
@@ -101,7 +103,7 @@ Java: A GUI felület java nyelven fog készülni. Ezeket a technológiákat amen
 grafikus interfészét.
 
 ## 11. Tesztterv
----
+JUnit teszt könyvtár lesz használva a tesztek írására és futtatására.
 ## Tesztelési eljárások
 
 **Alfa teszt:** Az alfa tesztet a fejlesztők végzik. A alfa teszt célja, hogy teszteljük a már meglévő funkciókat, hogy azok az elvártnak megfelelően működnek-e. A teszt akkor tekinthető sikeresnek, ha különböző GUI felületeken minden funkció megfelelően működik.
