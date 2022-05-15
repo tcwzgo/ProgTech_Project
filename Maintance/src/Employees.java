@@ -46,35 +46,17 @@ public class Employees {
                 }
                 else
                 {
-                    String name, email, post, salary;
+                    String name, email, post;
                     name = nameText.getText();
                     email = emailText.getText();
                     post = postText.getText();
-                    salary = salaryText.getText();
-                    EmployeeClass emp = new EmployeeClass(name, email, post, Integer.parseInt(salary));
+                    int salary = Integer.parseInt(salaryText.getText());
 
-                    try {
-
-                        Connection connection = dbcon.Connect();
-                        PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
-                        pst.setString(1, emp.getName());
-                        pst.setString(2, emp.getEmail());
-                        pst.setString(3, emp.getPost());
-                        pst.setString(4, String.valueOf(emp.getSalary()));
-                        pst.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    if (AddEmployee(name, email, post, salary)){
                         logger.info("Record added to employees table succesfully.");
-                        emp.AddEmployee(emp);
-                        emp.ListEmployees();
-                        nameText.setText("");
-                        emailText.setText("");
-                        postText.setText("");
-                        salaryText.setText("");
-                        table_load();
-                    } catch(Exception ex){
-                        ex.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Adding record to employees table was unsuccessful.");
+                    }
+                    else {
+                        logger.warn("Adding record to employees table was unsuccessful.");
                     }
                 }
             }
@@ -89,24 +71,12 @@ public class Employees {
                 }
                 else
                 {
-                    try {
-                        String name = nameText.getText();
-                        emp.DeleteByName(name);
-                        Connection connection = dbcon.Connect();
-                        PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
-                        pst.setString(1, name);
-                        pst.executeUpdate();
-                        table_load();
-                        nameText.setText("");
-                        emailText.setText("");
-                        postText.setText("");
-                        salaryText.setText("");
-                        JOptionPane.showMessageDialog(null, "Deleted succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    String name = nameText.getText();
+                    if (DeleteEmployee(name)){
                         logger.info("Record deleted in employees table successfully.");
-                    } catch(Exception ex){
-                        ex.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Deleting records in employess was unsuccessful.");
+                    }
+                    else{
+                        logger.warn("Deleting records in employess was unsuccessful.");
                     }
                 }
             }
@@ -121,37 +91,16 @@ public class Employees {
                 }
                 else
                 {
-                    try {
-                        String name = nameText.getText();
-                        String email = emailText.getText();
-                        String post = postText.getText();
-                        String salary = salaryText.getText();
+                    String name = nameText.getText();
+                    String email = emailText.getText();
+                    String post = postText.getText();
+                    String salary = salaryText.getText();
 
-                        new Boss(emp);
-                        emp.setName(name);
-                        emp.setEmail(email);
-                        emp.setPost(post);
-                        emp.setSalary(Integer.parseInt(salary));
-
-                        Connection connection = dbcon.Connect();
-                        PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
-                        pst.setString(1, name);
-                        pst.setString(2, email);
-                        pst.setString(3, post);
-                        pst.setString(4, salary);
-                        pst.setString(5, name);
-                        pst.executeUpdate();
-                        table_load();
-                        nameText.setText("");
-                        emailText.setText("");
-                        postText.setText("");
-                        salaryText.setText("");
-                        JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+                    if (UpdateEmployee(name, email, post, Integer.parseInt(salary))){
                         logger.info("Record updated in employees table successfully.");
-                    } catch(Exception ex) {
-                        ex.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("Updating records in employess was unsuccessful.");
+                    }
+                    else{
+                        logger.warn("Updating records in employess was unsuccessful.");
                     }
                 }
             }
@@ -159,8 +108,18 @@ public class Employees {
         showBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                table_load();
-                getExistingEmployeesFromDb();
+                if (table_load()){
+                    logger.info("Records selected to table in employees successfully.");
+                }
+                else {
+                    logger.info("Selecting records to table in employees was unsuccessful.");
+                }
+                if (getExistingEmployeesFromDb()){
+                    logger.info("Records selected to table in employees successfully.");
+                }
+                else{
+                    logger.warn("Selecting records to arraylist in EmployeeClass was unsuccessful.");
+                }
             }
         });
         cleartableBtn.addActionListener(new ActionListener() {
@@ -181,39 +140,12 @@ public class Employees {
                 }
                 else
                 {
-                    try{
-                        String name = searchText.getText();
-
-                        Connection connection = dbcon.Connect();
-                        PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
-                        pst.setString(1, name);
-                        ResultSet rs = pst.executeQuery();
-
-                        if(rs.next())
-                        {
-                            String name_ = rs.getString(2);
-                            String email_ = rs.getString(3);
-                            String post_ = rs.getString(4);
-                            String salary_ = rs.getString(5);
-
-                            nameText.setText(name_);
-                            emailText.setText(email_);
-                            postText.setText(post_);
-                            salaryText.setText(salary_);
-                        }
-                        else
-                        {
-                            nameText.setText("");
-                            emailText.setText("");
-                            postText.setText("");
-                            salaryText.setText("");
-                            JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
-                            logger.info("A select query was successful.");
-                        }
-                    } catch(Exception ex){
-                        ex.printStackTrace();
-                        JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
-                        logger.info("A select query was unsuccessful.");
+                    String name = searchText.getText();
+                    if(SearchEmployee(name)){
+                        logger.info("A select query was successful.");
+                    }
+                    else {
+                        logger.warn("A select query was unsuccessful.");
                     }
                 }
             }
@@ -258,7 +190,6 @@ public class Employees {
 
     public static void main(String[] args) {
         showWindow();
-        //TestDatabase();
     }
 
     public static void showWindow()
@@ -273,41 +204,23 @@ public class Employees {
         frame.setLocationRelativeTo(null); // kezdésnél középen jelenik meg az ablak
         //logger.info("Test log - My third log!");
     }
-
-    /*public static void TestDatabase()
-    {
-        try {
-            DBConnect dbcon = new DBConnect();
-            Connection connection = dbcon.Connect("maintance");
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from employees");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString("name"));
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }*/
-
-    private void table_load()
+    private boolean table_load()
     {
         try {
             Connection connection = dbcon.Connect();
             PreparedStatement pst = connection.prepareStatement("select * from employees");
             ResultSet rs = pst.executeQuery();
             table.setModel(DbUtils.resultSetToTableModel(rs));
-            logger.info("Records selected to table in employees successfully.");
+            return true;
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
-            logger.info("Selecting records to table in employees was unsuccessful.");
+            return false;
         }
 
     }
 
-    private static void getExistingEmployeesFromDb()
+    private static boolean getExistingEmployeesFromDb()
     {
         try {
             ArrayList<ArrayList<String>> outer = new ArrayList<ArrayList<String>>();
@@ -330,10 +243,126 @@ public class Employees {
                 employeeClass.AddEmployee(employeeClass);
                 employeeClass.ListEmployees();
             }
+            return true;
         } catch (Exception ex) {
             ex.printStackTrace();
             JOptionPane.showMessageDialog(null, "Failed loading table!", "Error", JOptionPane.ERROR_MESSAGE);
-            logger.info("Selecting records to arraylist in EmployeeClass was unsuccessful.");
+            return false;
+        }
+    }
+
+    protected boolean AddEmployee(String name, String email, String post, int salary){
+
+        EmployeeClass emp = new EmployeeClass(name, email, post, salary);
+
+        try {
+            Connection connection = dbcon.Connect();
+            PreparedStatement pst = connection.prepareStatement("insert into employees (name, email, post, salary) values(?, ?, ?, ?)");
+            pst.setString(1, emp.getName());
+            pst.setString(2, emp.getEmail());
+            pst.setString(3, emp.getPost());
+            pst.setString(4, String.valueOf(emp.getSalary()));
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Record added!", "Success", JOptionPane.PLAIN_MESSAGE);
+            emp.AddEmployee(emp);
+            emp.ListEmployees();
+            nameText.setText("");
+            emailText.setText("");
+            postText.setText("");
+            salaryText.setText("");
+            table_load();
+            return true;
+        } catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Failed adding record!", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    protected boolean DeleteEmployee(String name){
+        try{
+            emp.DeleteByName(name);
+            Connection connection = dbcon.Connect();
+            PreparedStatement pst = connection.prepareStatement("delete from employees where name = ?");
+            pst.setString(1, name);
+            pst.executeUpdate();
+            table_load();
+            nameText.setText("");
+            emailText.setText("");
+            postText.setText("");
+            salaryText.setText("");
+            JOptionPane.showMessageDialog(null, "Deleted succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+            return true;
+        } catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Deleting unsuccessful!", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    protected boolean UpdateEmployee(String name, String email, String post, int salary){
+        try{
+            new Boss(emp);
+            emp.setName(name);
+            emp.setEmail(email);
+            emp.setPost(post);
+            emp.setSalary(salary);
+
+            Connection connection = dbcon.Connect();
+            PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
+            pst.setString(1, name);
+            pst.setString(2, email);
+            pst.setString(3, post);
+            pst.setString(4, String.valueOf(salary));
+            pst.setString(5, name);
+            pst.executeUpdate();
+            table_load();
+            nameText.setText("");
+            emailText.setText("");
+            postText.setText("");
+            salaryText.setText("");
+            JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
+            return true;
+        } catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
+    protected boolean SearchEmployee(String name){
+        try{
+            Connection connection = dbcon.Connect();
+            PreparedStatement pst = connection.prepareStatement("select * from employees where name = ?");
+            pst.setString(1, name);
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next())
+            {
+                String name_ = rs.getString(2);
+                String email_ = rs.getString(3);
+                String post_ = rs.getString(4);
+                String salary_ = rs.getString(5);
+
+                nameText.setText(name_);
+                emailText.setText(email_);
+                postText.setText(post_);
+                salaryText.setText(salary_);
+                return true;
+            }
+            else
+            {
+                nameText.setText("");
+                emailText.setText("");
+                postText.setText("");
+                salaryText.setText("");
+                JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+                return false;
+            }
+        } catch(Exception ex){
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Invalid name!", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
         }
     }
 }
