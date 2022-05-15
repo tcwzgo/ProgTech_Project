@@ -89,7 +89,7 @@ public class Employees {
                 }
                 else
                 {
-                    try{
+                    try {
                         String name = nameText.getText();
                         emp.DeleteByName(name);
                         Connection connection = dbcon.Connect();
@@ -121,7 +121,7 @@ public class Employees {
                 }
                 else
                 {
-                    try{
+                    try {
                         String name = nameText.getText();
                         String email = emailText.getText();
                         String post = postText.getText();
@@ -148,7 +148,7 @@ public class Employees {
                         salaryText.setText("");
                         JOptionPane.showMessageDialog(null, "Updated succesfully!", "Success", JOptionPane.PLAIN_MESSAGE);
                         logger.info("Record updated in employees table successfully.");
-                    } catch(Exception ex){
+                    } catch(Exception ex) {
                         ex.printStackTrace();
                         JOptionPane.showMessageDialog(null, "Invalid arguments!", "Error", JOptionPane.ERROR_MESSAGE);
                         logger.info("Updating records in employess was unsuccessful.");

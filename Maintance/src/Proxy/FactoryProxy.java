@@ -2,7 +2,7 @@ package Proxy;
 
 public class FactoryProxy extends Item {
 
-    private RealFactory realFactory;
+    private RealFactory realFactory = new RealFactory();
 
     @Override
     public void ListAll() {

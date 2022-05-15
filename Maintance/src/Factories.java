@@ -33,9 +33,13 @@ public class Factories {
     private ArrayList<String> getTextFieldContent() {
 
         ArrayList<String> txtFields = new ArrayList<>();
-        if (tfCompanyName.getText().equals("") || tfInstitution.getText().equals("") || tfAddress.getText().equals("")) {
-            System.out.println("Fill out every input!");
+        if (tfCompanyName.getText().equals("")
+                || tfInstitution.getText().equals("") || tfAddress.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Fill out every input!");
             logger.info("Fill out every input!");
+        } else if (tfCompanyName.getText().length() <= 5) {
+            JOptionPane.showMessageDialog(null, "Name should be at least 5 characters long!");
+            logger.info("Name should be at least 5 characters long!");
         } else {
             txtFields.add(tfCompanyName.getText());
             txtFields.add(tfInstitution.getText());
@@ -62,6 +66,7 @@ public class Factories {
                     String dOInst = data.get(1);
                     String addr = data.get(2);
                     factoryProxy.Add(name, addr, dOInst);
+
                     if (dOInst.contains(",")) {
                         String sql = "INSERT INTO `factories`(`company_name`, `institution`, `address`)" +
                                 " VALUES ('"+ name +"', STR_TO_DATE('"+ dOInst +"', '%Y,%m,%d'),'"+ addr +"');";

@@ -160,4 +160,59 @@
   2022-05-05 17:25:09 WARN  DBConnect:106 - Insert was unsuccessful.
   2022-05-05 17:28:39 INFO  Employees:68 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE('1884,11,23', '%Y,%m,%d'),'test');
   2022-05-05 17:28:41 INFO  DBConnect:100 - A record was inserted successfully.
+  2022-05-05 17:52:48 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:52:48 INFO  Employees:111 - []
+  2022-05-05 17:52:48 WARN  Employees:120 - Update failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:53:07 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:53:07 INFO  Employees:111 - []
+  2022-05-05 17:53:07 WARN  Employees:120 - Update failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:53:48 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:53:48 INFO  Employees:111 - []
+  2022-05-05 17:53:48 WARN  Employees:120 - Update failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:53:59 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:54:00 INFO  Employees:111 - []
+  2022-05-05 17:54:00 WARN  Employees:120 - Update failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:54:01 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:54:04 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:54:04 WARN  Employees:74 - Insert failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:54:04 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 17:55:44 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:55:44 WARN  Employees:79 - Insert failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:57:42 INFO  Employees:38 - Fill out every input!
+  2022-05-05 17:57:42 WARN  Employees:79 - Insert failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 17:57:59 INFO  Employees:116 - [test, 1885,15,11, test]
+  2022-05-05 17:57:59 WARN  Employees:125 - Update failed due to error: Index 3 out of bounds for length 0
+  2022-05-05 17:59:43 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:25 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:26 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:26 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:26 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:27 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:27 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:27 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:27 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:28 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:28 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:01:50 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:04:52 INFO  Employees:72 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('dfdfhfgh', STR_TO_DATE('dgf,fghfgh,fgh', '%Y,%m,%d'),'sddgfdfg');
+  2022-05-05 18:04:52 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 18:05:12 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:05:26 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:06:26 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:49:54 INFO  Employees:38 - Fill out every input!
+  2022-05-05 18:49:54 WARN  Employees:75 - Insert failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 18:50:36 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE(',', '%Y,%m,%d'),'addr');
+  2022-05-05 18:50:36 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 18:50:45 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE('asdasd,asdasd,asd', '%Y,%m,%d'),'addr');
+  2022-05-05 18:50:45 WARN  DBConnect:106 - Insert was unsuccessful.
+  2022-05-05 18:50:59 INFO  Employees:69 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('test', STR_TO_DATE('1111,11,11', '%Y,%m,%d'),'addr');
+  2022-05-05 18:51:00 INFO  DBConnect:100 - A record was inserted successfully.
+  2022-05-05 18:51:15 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:55:26 INFO  Employees:42 - Name should be at least 5 characters long!
+  2022-05-05 18:55:26 WARN  Employees:79 - Insert failed due to error: Index 0 out of bounds for length 0
+  2022-05-05 18:55:31 INFO  Employees:73 - INSERT INTO `factories`(`company_name`, `institution`, `address`) VALUES ('testUU', STR_TO_DATE('1111,11,11', '%Y,%m,%d'),'addr');
+  2022-05-05 18:55:32 INFO  DBConnect:100 - A record was inserted successfully.
+  2022-05-05 18:55:42 INFO  DBConnect:52 - Select was successful.
+  2022-05-05 18:55:55 INFO  DBConnect:78 - Record deleted successfully.
+  2022-05-05 18:55:57 INFO  DBConnect:52 - Select was successful.
   
