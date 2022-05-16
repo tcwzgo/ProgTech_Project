@@ -104,6 +104,5 @@ public class RealFactory extends Item {
         setAddress(address);
         setDateOfInstitution(dateOfInstitution);
     }
-
     public RealFactory() { }
 }
