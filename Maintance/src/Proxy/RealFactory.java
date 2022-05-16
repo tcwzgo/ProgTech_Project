@@ -13,18 +13,20 @@ public class RealFactory extends Item {
     protected ArrayList<RealFactory> factories = new ArrayList<>();
 
     // Getters
-    private String getCompanyName() {
+    public int getSize() { return factories.size(); }
+    public ArrayList<RealFactory> getFactories() { return this.factories; }
+    public String getCompanyName() {
         return this.companyName;
     }
-    private String getAddress() {
+    public String getAddress() {
         return this.address;
     }
-    private String getDateOfInstitution() {
+    public String getDateOfInstitution() {
         return this.dateOfInstitution;
     }
 
     // Setters
-    private void setCompanyName(String companyName) {
+    public void setCompanyName(String companyName) {
         System.out.println(companyName.length());
         if (companyName.length() >= 5) {
             this.companyName = companyName;
@@ -32,10 +34,10 @@ public class RealFactory extends Item {
             System.out.println("The name must be at least 5 characters long!");
         }
     }
-    private void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
-    private void setDateOfInstitution(String dateOfInstitution) {
+    public void setDateOfInstitution(String dateOfInstitution) {
         if (!(dateOfInstitution.matches("[a-zA-Z]"))) {
             this.dateOfInstitution = dateOfInstitution;
         } else {
@@ -56,7 +58,7 @@ public class RealFactory extends Item {
             System.out.println("The list is empty! Nothing to delete!");
         }
         else {
-            for (int i = 0; i < factories.size(); i++) {
+            for (int i = 0; i < factories.size() - 1; i++) {
                 if (factories.get(i).getCompanyName().equals(companyName)) {
                     factories.remove(i);
                 }
@@ -77,8 +79,6 @@ public class RealFactory extends Item {
         RealFactory selectedFactory = null;
 
         for (RealFactory factory : factories) {
-            System.out.println(factory.getCompanyName());
-            System.out.println(companyName);
             if (factory.getCompanyName().equals(companyName)) {
                 selectedFactory = factory;
             }

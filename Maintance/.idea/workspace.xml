@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69a025f0-78ec-4e0d-a447-207af38ef01a" name="Changes" comment="factories window created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DBConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DBConnect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Employees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Employees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factories.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factories.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/FactoryProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Proxy/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Proxy/RealFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Proxy/RealFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/FactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/FactoryTest.java" afterDir="false" />
     </list>
@@ -60,15 +54,8 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="JUnit.FactoryTest.testUpdate">
-    <configuration name="Factories" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Factories" />
-      <module name="Maintance" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="FactoryTest.testAdd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.FactoryTest">
+    <configuration name="FactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Maintance" />
       <extension name="coverage">
         <pattern>
@@ -78,13 +65,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.FactoryTest" />
-      <option name="METHOD_NAME" value="testAdd" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FactoryTest.testListAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Maintance" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.FactoryTest" />
+      <option name="METHOD_NAME" value="testListAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FactoryTest.testGetSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FactoryTest.testSetAddress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Maintance" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +96,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.FactoryTest" />
-      <option name="METHOD_NAME" value="testGetSize" />
+      <option name="METHOD_NAME" value="testSetAddress" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FactoryTest.testRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FactoryTest.testSetCompanyName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Maintance" />
       <extension name="coverage">
         <pattern>
@@ -110,13 +112,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.FactoryTest" />
-      <option name="METHOD_NAME" value="testRemove" />
+      <option name="METHOD_NAME" value="testSetCompanyName" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FactoryTest.testUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FactoryTest.testSetDateOfInstitution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Maintance" />
       <extension name="coverage">
         <pattern>
@@ -126,7 +128,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.FactoryTest" />
-      <option name="METHOD_NAME" value="testUpdate" />
+      <option name="METHOD_NAME" value="testSetDateOfInstitution" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FactoryTest.testUpdate" />
-        <item itemvalue="JUnit.FactoryTest.testRemove" />
-        <item itemvalue="JUnit.FactoryTest.testAdd" />
-        <item itemvalue="JUnit.FactoryTest.testGetSize" />
-        <item itemvalue="Application.Factories" />
+        <item itemvalue="JUnit.FactoryTest" />
+        <item itemvalue="JUnit.FactoryTest.testSetCompanyName" />
+        <item itemvalue="JUnit.FactoryTest.testSetDateOfInstitution" />
+        <item itemvalue="JUnit.FactoryTest.testSetAddress" />
+        <item itemvalue="JUnit.FactoryTest.testListAll" />
       </list>
     </recent_temporary>
   </component>
