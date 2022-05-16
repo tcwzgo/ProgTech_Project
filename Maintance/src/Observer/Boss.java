@@ -14,6 +14,6 @@ public class Boss implements Observer{
 
     @Override
     public void sendMessage() {
-        JOptionPane.showMessageDialog(null, "Your boss has been notified about changing " + emp.getName() + "'s informations.", "Warning!", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Your boss has been notified about changing " + emp.getName() + "'s salary.", "Warning!", JOptionPane.WARNING_MESSAGE);
     }
 }
