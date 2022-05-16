@@ -306,9 +306,19 @@ public class Employees {
             emp.setName(name);
             emp.setEmail(email);
             emp.setPost(post);
-            emp.setSalary(salary);
 
             Connection connection = dbcon.Connect();
+
+            PreparedStatement pst_salary = connection.prepareStatement("select salary from employees where name = ?");
+            pst_salary.setString(1, name);
+            ResultSet rs = pst_salary.executeQuery();
+            while(rs.next()) {
+                int prevoiusSalary = rs.getInt("salary");
+                if (salary != prevoiusSalary){
+                    emp.setSalary(salary);
+                }
+            }
+
             PreparedStatement pst = connection.prepareStatement("update employees set name = ?, email = ?, post = ?, salary = ? where name = ?");
             pst.setString(1, name);
             pst.setString(2, email);
