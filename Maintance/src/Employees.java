@@ -191,7 +191,7 @@ public class Employees {
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
                 char c = e.getKeyChar();
-                if(!(Character.isAlphabetic(c) || c==KeyEvent.VK_DELETE )) {
+                if(!(Character.isAlphabetic(c) || !(c==KeyEvent.VK_BACK_SPACE) )) {
                     e.consume();
                 }
             }
@@ -201,7 +201,7 @@ public class Employees {
             public void keyTyped(KeyEvent e) {
                 super.keyTyped(e);
                 char c = e.getKeyChar();
-                if(!(Character.isAlphabetic(c) || (c==KeyEvent.VK_BACK_SPACE) || c==KeyEvent.VK_DELETE )) {
+                if(!(Character.isAlphabetic(c) || !(c==KeyEvent.VK_BACK_SPACE) )) {
                     e.consume();
                 }
             }
