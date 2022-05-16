@@ -1,5 +1,7 @@
 package Proxy;
 
+import org.w3c.dom.ranges.RangeException;
+
 import java.util.ArrayList;
 
 public class RealFactory extends Item {
@@ -23,6 +25,7 @@ public class RealFactory extends Item {
 
     // Setters
     private void setCompanyName(String companyName) {
+        System.out.println(companyName.length());
         if (companyName.length() >= 5) {
             this.companyName = companyName;
         } else {
@@ -69,14 +72,23 @@ public class RealFactory extends Item {
         factories.add(factory);
     }
     @Override
-    public void Update(int id, String companyName, String address, String dateOfInstitution) throws Exception {
-        RealFactory selectedFactory = factories.get(id);
+    public void Update(String companyName, String address, String dateOfInstitution) throws Exception {
+
+        RealFactory selectedFactory = null;
+
+        for (RealFactory factory : factories) {
+            System.out.println(factory.getCompanyName());
+            System.out.println(companyName);
+            if (factory.getCompanyName().equals(companyName)) {
+                selectedFactory = factory;
+            }
+        }
         if (!(selectedFactory == null)) {
             selectedFactory.setCompanyName(companyName);
             selectedFactory.setAddress(address);
             selectedFactory.setDateOfInstitution(dateOfInstitution);
         } else {
-            throw new Exception(String.format("The specified factory doesn't exist. ID: %d", id));
+            throw new Exception(String.format("The specified factory doesn't exist. companyName: %s", companyName));
         }
     }
 

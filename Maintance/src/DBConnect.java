@@ -1,3 +1,4 @@
+import net.proteanit.sql.DbUtils;
 import org.apache.log4j.*;
 import org.apache.log4j.chainsaw.Main;
 import org.apache.log4j.Logger;
@@ -15,7 +16,7 @@ public class DBConnect {
      * @return the connection to be used in the statements
      * @throws Exception if the connection fails at the end
      */
-    public Connection Connect() throws Exception {
+    public Connection Connect() throws SQLException {
 
         Connection connection;
 
@@ -32,7 +33,7 @@ public class DBConnect {
         {
             ex.printStackTrace();
         }
-        throw new Exception("Couldn't connect to the database...");
+        throw new SQLException("Couldn't connect to the database...");
     }
 
     /***
@@ -40,7 +41,7 @@ public class DBConnect {
      * @param tableName name of the table in the db
      * @throws Exception inherited from Connect()
      */
-    protected void SelectAll(String tableName) throws Exception {
+    protected void SelectAll(String tableName, JTable table) throws Exception {
 
         PreparedStatement query = null;
         Connection connection = this.Connect();
@@ -49,6 +50,7 @@ public class DBConnect {
         {
             query = connection.prepareStatement(String.format("select * from %s", tableName));
             ResultSet rs = query.executeQuery();
+            table.setModel(DbUtils.resultSetToTableModel(rs));
             logger.info("Select was successful.");
         }
         catch (SQLException e)
@@ -114,7 +116,7 @@ public class DBConnect {
      * @param dOInst
      * @param addr
      */
-    protected void Update(int id, String name, String dOInst, String addr) throws Exception {
+    protected void Update(int id, String name, String dOInst, String addr) throws SQLException {
 
         PreparedStatement query = null;
         Connection connection = this.Connect();
@@ -126,7 +128,7 @@ public class DBConnect {
                 JOptionPane.showMessageDialog(null, "The date should be separated with ','!");
             } else {
                 String sqlQuery = "UPDATE `factories` SET `company_name`='" + name + "',"+
-                        "`institution`=STR_TO_DATE('" + dOInst + "', %Y,%m,%d)," +
+                        "`institution`=STR_TO_DATE('" + dOInst + "', '%Y,%m,%d')," +
                         "`address`='" + addr + "' " +
                         "WHERE `id` = " + id;
                 logger.info(sqlQuery);

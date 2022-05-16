@@ -99,7 +99,7 @@ public class Employees {
                     if (UpdateEmployee(name, email, post, Integer.parseInt(salary))){
                         logger.info("Record updated in employees table successfully.");
                     }
-                    else{
+                    else {
                         logger.warn("Updating records in employess was unsuccessful.");
                     }
                 }

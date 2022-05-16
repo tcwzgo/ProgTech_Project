@@ -23,9 +23,9 @@ public class FactoryProxy extends Item {
     }
 
     @Override
-    public void Update(int id, String companyName, String address, String dateOfInstitution)
+    public void Update(String companyName, String address, String dateOfInstitution)
             throws Exception {
         if (realFactory == null) { realFactory = new RealFactory(); }
-        realFactory.Update(id, companyName, address, dateOfInstitution);
+        realFactory.Update(companyName, address, dateOfInstitution);
     }
 }

@@ -102,7 +102,7 @@ public class Factories {
                 try {
                     database.Connect();
                     factoryProxy.ListAll();
-                    database.SelectAll("factories");
+                    database.SelectAll("factories",dataTable);
                 } catch (Exception ex) {
                     logger.warn("Select failed due to error: " + ex.getMessage());                }
             }
@@ -115,8 +115,7 @@ public class Factories {
                     database.Connect();
                     logger.info(data);
 
-                    factoryProxy.Update((Integer) spId.getValue(),
-                            data.get(0), data.get(1), data.get(2));
+                    factoryProxy.Update(data.get(0), data.get(1), data.get(2));
 
                     database.Update((Integer) spId.getValue(),
                             data.get(0), data.get(1), data.get(2));
